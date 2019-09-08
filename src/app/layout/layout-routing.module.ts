@@ -25,6 +25,10 @@ const routes: Routes = [
             {
                 path: 'screen2',
                 component: Screen2Component
+            },
+            {
+                path: 'terceros-list',
+                loadChildren: './terceros-list/terceros-list.module#TercerosListModule'
             }
         ]
     }

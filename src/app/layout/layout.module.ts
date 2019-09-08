@@ -16,6 +16,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { Screen2Component } from './screen2/screen2.component';
+import { TercerosListComponent } from './terceros-list/terceros-list.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,7 @@ import { Screen2Component } from './screen2/screen2.component';
         MatListModule,
         TranslateModule
     ],
-    declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, ]
+    declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
 
 })
 export class LayoutModule { }
