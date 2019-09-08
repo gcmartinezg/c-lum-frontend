@@ -7,7 +7,8 @@ import {
     MatListModule,
     MatMenuModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -17,6 +18,7 @@ import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { Screen2Component } from './screen2/screen2.component';
 import { TercerosListComponent } from './terceros-list/terceros-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -24,12 +26,14 @@ import { TercerosListComponent } from './terceros-list/terceros-list.component';
         LayoutRoutingModule,
         MatToolbarModule,
         MatButtonModule,
-        MatSidenavModule,
         MatIconModule,
         MatInputModule,
-        MatMenuModule,
         MatListModule,
-        TranslateModule
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        TranslateModule,
     ],
     declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
 

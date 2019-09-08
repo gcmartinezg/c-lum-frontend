@@ -6,7 +6,9 @@ import {
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule
 } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +18,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TercerosSaveDialogComponent } from './layout/terceros-save-dialog/terceros-save-dialog.component';
+import { FormsModule } from '@angular/forms';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -28,9 +32,13 @@ export const createTranslateLoader = (http: HttpClient) => {
 };
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        TercerosSaveDialogComponent
+    ],
     imports: [
         BrowserModule,
+        FormsModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         LayoutModule,
@@ -43,6 +51,9 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         })
+    ],
+    entryComponents: [
+        TercerosSaveDialogComponent
     ],
     providers: [],
     bootstrap: [AppComponent]
