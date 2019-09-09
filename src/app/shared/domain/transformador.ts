@@ -1,7 +1,7 @@
 export class Transformador {
     constructor(
-        transformadorId : number,
-        tSoporteId : number,
-        tTransformadorId : number,
+        public transformadorId : number,
+        public tSoporteId : number,
+        public tTransformadorId : number,
     ){}
 }

@@ -1,11 +1,11 @@
 export class Canalizacion {
 
     constructor(
-        canalizacionId: number,
-        lamparaId: number,
-        tZonaId: number,
-        tSoporteId: number,
-        cajaInspeccion: string,
-        ducteria: string
+        public canalizacionId: number,
+        public lamparaId: number,
+        public tZonaId: number,
+        public tSoporteId: number,
+        public cajaInspeccion: string,
+        public ducteria: string
     ){}
 }

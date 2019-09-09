@@ -1,6 +1,6 @@
 export class TipoZona {
     constructor(
-        tZonaId:number,
-        nombre:string
+        public tZonaId:number,
+        public nombre:string
     ){}
 }

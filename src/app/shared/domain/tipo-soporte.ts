@@ -1,6 +1,6 @@
 export class TipoSoporte {
     constructor(
-        tSoporteId : number,
-        nombre : string,
+        public tSoporteId : number,
+        public nombre : string,
     ){}
 }

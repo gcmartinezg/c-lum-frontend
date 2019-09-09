@@ -1,6 +1,6 @@
 export class TipoLampara {
     constructor(
-        tLamparaId : number,
-        nombre : string,
+        public tLamparaId : number,
+        public nombre : string,
     ){}
 }

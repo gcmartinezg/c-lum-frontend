@@ -1,6 +1,6 @@
 export class TipoMaterial {
     constructor(
-        tMaterialId : number,
-        nombre : string,
+        public tMaterialId : number,
+        public nombre : string,
     ){}
 }

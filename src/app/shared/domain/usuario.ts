@@ -1,10 +1,10 @@
 export class Usuario {
     constructor(
-        usuarioId : number,
-        nDocumento : string,
-        tDocId : number,
-        contrasena : string,
-        tUsuarioId: number,
-        estado : string = 'S'
+        public usuarioId : number,
+        public nDocumento : string,
+        public tDocId : number,
+        public contrasena : string,
+        public tUsuarioId: number,
+        public estado : string = 'S'
     ){}
 }

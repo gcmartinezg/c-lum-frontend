@@ -1,6 +1,6 @@
 export class TipoEspacioIluminado {
     constructor(
-        tEspacioId : number,
-        nombre : string,
+        public tEspacioId : number,
+        public nombre : string,
     ){}
 }

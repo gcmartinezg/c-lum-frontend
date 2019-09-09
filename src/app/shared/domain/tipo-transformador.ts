@@ -1,6 +1,6 @@
 export class TipoTransformador {
     constructor(
-        tTransformadorId : number,
-        nombre : string,
+        public tTransformadorId : number,
+        public nombre : string,
     ){}
 }

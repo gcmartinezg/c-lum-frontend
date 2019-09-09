@@ -1,12 +1,12 @@
 export class Tercero {
     constructor(
-        terceroId : number,
-        nDocumento : number,
-        tDocId : number,
-        nombre : string,
-        direccion : string,
-        correo : string,
-        telefono : string,
-        estado : string = 'S'
+        public terceroId : number,
+        public nDocumento : number,
+        public tDocId : number,
+        public nombre : string,
+        public direccion : string,
+        public correo : string,
+        public telefono : string,
+        public estado : string = 'S'
     ){}
 }

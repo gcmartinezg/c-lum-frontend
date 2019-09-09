@@ -1,6 +1,6 @@
 export class TipoUsuario {
     constructor(
-        tUsuarioId : number,
-        nombre : string,
+        public tUsuarioId : number,
+        public nombre : string,
     ){}
 }
