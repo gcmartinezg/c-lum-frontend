@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './layout.component';
-import { Screen1Component } from './screen1/screen1.component';
-import { Screen2Component } from './screen2/screen2.component';
 
 const routes: Routes = [
     {
@@ -19,17 +17,10 @@ const routes: Routes = [
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             {
-                path: 'screen1',
-                loadChildren: './screen1/screen1.module#Screen1Module'
+                path: 'terceros',
+                loadChildren: './tercero-crud/tercero-crud.module#TerceroCrudModule'
             },
-            {
-                path: 'screen2',
-                component: Screen2Component
-            },
-            {
-                path: 'terceros-list',
-                loadChildren: './terceros-list/terceros-list.module#TercerosListModule'
-            }
+            //TODO agregar las demas rutas
         ]
     }
 ];

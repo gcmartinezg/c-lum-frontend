@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TercerosSaveDialogComponent } from './terceros-save-dialog.component';
+import { TerceroListComponent } from './tercero-list.component';
 
-describe('TercerosSaveDialogComponent', () => {
-  let component: TercerosSaveDialogComponent;
-  let fixture: ComponentFixture<TercerosSaveDialogComponent>;
+describe('TerceroListComponent', () => {
+  let component: TerceroListComponent;
+  let fixture: ComponentFixture<TerceroListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TercerosSaveDialogComponent ]
+      declarations: [ TerceroListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TercerosSaveDialogComponent);
+    fixture = TestBed.createComponent(TerceroListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

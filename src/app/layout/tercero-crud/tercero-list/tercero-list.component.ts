@@ -1,22 +1,20 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar } from '@angular/material';
 import { Tercero } from 'src/app/shared/domain/tercero';
-import { TercerosSaveDialogComponent } from '../terceros-save-dialog/terceros-save-dialog.component';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar } from '@angular/material';
+import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/tercero-update-save-dialog.component';
 
 const DATOS: Tercero[] = [
   {terceroId: 1, nDocumento: 12345, tDocId: 1, nombre: 'Giovanny Ayala', direccion:'Carrera 100 numero 1-4', telefono:"(032) 2889765", estado: 'S', correo: 'ayala@yopmail.com'},
   {terceroId: 2, nDocumento: 876616, tDocId: 1, nombre: 'Pipe Bueno', direccion:'Avenida 5ta', telefono:"(032) 2889982", estado: 'N', correo:'pbueno@yopmail.com'}
 ];
 
-
 @Component({
-  selector: 'app-terceros-list',
-  templateUrl: './terceros-list.component.html',
-  styleUrls: ['./terceros-list.component.scss']
+  selector: 'app-tercero-list',
+  templateUrl: './tercero-list.component.html',
+  styleUrls: ['./tercero-list.component.scss']
 })
-
-export class TercerosListComponent implements OnInit {
-
+export class TerceroListComponent implements OnInit {
+  
   displayedColumns: string[] = [
     'terceroId',
     'nDocumento',
@@ -53,7 +51,7 @@ export class TercerosListComponent implements OnInit {
   }
 
   openDialogSave(){
-    const dialogRef = this.dialog.open(TercerosSaveDialogComponent, {});
+    const dialogRef = this.dialog.open(TerceroUpdateSaveDialogComponent, {});
     dialogRef.afterClosed().subscribe(result=>{
       console.log('Dialog cerrado correctamente!');
     });

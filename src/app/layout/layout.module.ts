@@ -16,26 +16,25 @@ import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
-import { Screen2Component } from './screen2/screen2.component';
-import { TercerosListComponent } from './terceros-list/terceros-list.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
+    declarations: [
+        LayoutComponent, 
+        NavComponent, 
+        TopnavComponent, 
+        SidebarComponent
+    ],
     imports: [
         CommonModule,
         LayoutRoutingModule,
         MatToolbarModule,
         MatButtonModule,
+        MatSidenavModule,
         MatIconModule,
         MatInputModule,
-        MatListModule,
         MatMenuModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatFormFieldModule,
+        MatListModule,
         TranslateModule,
     ],
-    declarations: [Screen2Component, LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
-
 })
 export class LayoutModule { }

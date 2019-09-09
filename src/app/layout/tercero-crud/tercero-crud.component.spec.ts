@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Screen1Component } from './screen1.component';
+import { TerceroCrudComponent } from './tercero-crud.component';
 
-describe('Screen1Component', () => {
-  let component: Screen1Component;
-  let fixture: ComponentFixture<Screen1Component>;
+describe('TerceroCrudComponent', () => {
+  let component: TerceroCrudComponent;
+  let fixture: ComponentFixture<TerceroCrudComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Screen1Component ]
+      declarations: [ TerceroCrudComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Screen1Component);
+    fixture = TestBed.createComponent(TerceroCrudComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
