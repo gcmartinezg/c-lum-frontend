@@ -22,7 +22,7 @@ import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/
     MatMenuModule,
     MatPaginatorModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   entryComponents: []
 })

@@ -4,8 +4,8 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatD
 import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/tercero-update-save-dialog.component';
 
 const DATOS: Tercero[] = [
-  {terceroId: 1, nDocumento: 12345, tDocId: 1, nombre: 'Giovanny Ayala', direccion:'Carrera 100 numero 1-4', telefono:"(032) 2889765", estado: 'S', correo: 'ayala@yopmail.com'},
-  {terceroId: 2, nDocumento: 876616, tDocId: 1, nombre: 'Pipe Bueno', direccion:'Avenida 5ta', telefono:"(032) 2889982", estado: 'N', correo:'pbueno@yopmail.com'}
+  {terceroId: 12345, tDocId: 1, nombre: 'Giovanny Ayala', direccion:'Carrera 100 numero 1-4', telefono:"(032) 2889765", estado: 'S', correo: 'ayala@yopmail.com'},
+  {terceroId: 876616, tDocId: 1, nombre: 'Pipe Bueno', direccion:'Avenida 5ta', telefono:"(032) 2889982", estado: 'N', correo:'pbueno@yopmail.com'}
 ];
 
 @Component({
@@ -82,8 +82,8 @@ export class TerceroListComponent implements OnInit {
 
   }
 
-  actualizar(tercero: Tercero){
-    let data = {saveBool : false, id : tercero.terceroId};
+  actualizar(terceroId: string){
+    let data = {saveBool : false, id : terceroId};
 
     let matDialogRef = this.matDialog.open(
       TerceroUpdateSaveDialogComponent, 

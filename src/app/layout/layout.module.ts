@@ -16,6 +16,7 @@ import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,8 @@ import { NavComponent } from './nav/nav.component';
         MatButtonModule,
         MatSidenavModule,
         MatIconModule,
+        FormsModule,
+        MatFormFieldModule,
         MatInputModule,
         MatMenuModule,
         MatListModule,

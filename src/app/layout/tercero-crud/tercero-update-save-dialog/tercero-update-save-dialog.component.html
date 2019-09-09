@@ -1,19 +1,98 @@
 <h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
-  Create {{injectedObject.text}}
+  Crear {{injectedObject.text}}
 </h2>
 
+<ng-template #elseHeader>
+  <h2 mat-dialog-title>
+    Editar {{tercero.terceroId}} - {{tercero.nombre}}
+  </h2>
+</ng-template>
+
 <mat-dialog-content>
-  <div>
+  <mat-form-field>
+    <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
+      [(ngModel)]="tercero.terceroId" #terceroId 
+      id="terceroId" name="terceroId" 
+      placeholder="Numero de Documento" disabled
+    >
+
+    <ng-template #elseInput>
+      <input matInput [(ngModel)]="tercero.terceroId" 
+        #terceroId id="terceroId" name="terceroId" 
+        placeholder="Numero de Documento"
+      >
+    </ng-template>
+  </mat-form-field>
+
+  <div *ngIf="injectedObject.saveBool">
     <mat-form-field>
-      <input matInput placeholder="Input">
+      <mat-label>Tipo de Documento</mat-label>
+      <mat-select [(ngModel)]="tercero.tDocId" 
+        #tDocId id="tDocId" name="tDocId"
+      >
+
+        <mat-option *ngFor="let tDoc of listaTipoDocumento" 
+          [value]="tDoc.tDocId"
+        >
+          {{tDoc.tDocId}} - {{tDoc.nombre}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.nombre" 
+      #nombre id="nombre" name="nombre" placeholder="Nombre"
+    >
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.direccion" 
+      #direccion id="direccion" name="direccion" 
+      placeholder="Direccion"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.telefono" 
+      #telefono id="telefono" name="telefono" 
+      placeholder="Telefono"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.correo" 
+      #correo id="correo" name="correo" 
+      placeholder="Correo"
+    >
+  </mat-form-field>
+
+  <div *ngIf="!injectedObject.saveBool">
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <mat-select [(ngModel)]="tercero.activo" 
+        #activo id="activo" name="activo"
+      >
+
+        <mat-option *ngFor="let estado of listaEstados" 
+          [value]="estado.id"
+        >
+          {{estado.id}} - {{estado.nombre}}
+        </mat-option>
+
+      </mat-select>
     </mat-form-field>
   </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button class="mat-raised-button mat-primary"(click)="crear()" *ngIf="injectedObject.saveBool; else elseButton">Save</button>
+  <button class="mat-raised-button mat-primary" (click)="crear()"
+    *ngIf="injectedObject.saveBool; else elseButton">Guardar</button>
   <ng-template #elseButton>
-      <button class="mat-raised-button mat-primary"(click)="actualizar()">Update</button>
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
   </ng-template>
-  <button class="mat-raised-button"(click)="close()">Close</button>
+  <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
 </mat-dialog-actions>

@@ -10,6 +10,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatIconModule,
+  MatOptionModule,
+  MatSelectModule,
  } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
@@ -20,10 +22,12 @@ import { FormsModule } from '@angular/forms';
     TerceroCrudRoutingModule,
     MatDialogModule,
     MatSnackBarModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   entryComponents: [TerceroUpdateSaveDialogComponent]
 })

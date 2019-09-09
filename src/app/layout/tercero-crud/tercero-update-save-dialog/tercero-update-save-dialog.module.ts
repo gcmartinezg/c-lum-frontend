@@ -8,7 +8,7 @@ import { TerceroUpdateSaveDialogComponent } from './tercero-update-save-dialog.c
   declarations: [TerceroUpdateSaveDialogComponent],
   imports: [
     CommonModule,
-    TerceroUpdateSaveDialogRoutingModule
-  ]
+    TerceroUpdateSaveDialogRoutingModule,
+  ],
 })
 export class TerceroUpdateSaveDialogModule { }

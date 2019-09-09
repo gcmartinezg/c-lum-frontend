@@ -1,31 +1,45 @@
 <div class="login-page">
     <div class="content">
-        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
         <form class="login-form" fxFlex  >
             <div class="text-center">
-                <h2 class="app-name">Sb Admin Material</h2>
+                <h2 class="app-name">C-LUM Portal Web</h2>
+            </div>
+            <!--TODO hacer logo de la aplicacion-->
+            <!--<div class="text-center">
+                <img class="app-logo" src="../../assets/images/western_king673ab7_ffc107.png">
+            </div>-->
+            <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput [(ngModel)]="usuario.usuUsuario" #usuUsuario id="usuUsuario" 
+                        name="usuUsuario" placeholder="{{ 'Username' | translate }}">
+                    </mat-form-field>
+                </div>
             </div>
             <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput placeholder="Email">
+                        <input matInput [(ngModel)]="usuario.nDocumento" #nDocumento id="nDocumento" 
+                        name="nDocumento" placeholder="{{ 'Document Number' | translate }}">
                     </mat-form-field>
                 </div>
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput type="password" placeholder="Password">
+                        <input matInput [(ngModel)]="usuario.contrasena" #contrasena id="contrasena" 
+                        name="contrasena" type="password" placeholder="{{ 'Password' | translate }}">
                     </mat-form-field>
                 </div>
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
                 <div fxFlex>
-                    <mat-checkbox color="primary">Remember Me</mat-checkbox>
+                    <mat-checkbox color="primary">Recordarme</mat-checkbox>
                 </div>
-                <div fxFlex  fxLayoutAlign="end">
+                <!-- TODO buscar como hacer 'olvide mi contrasena' -->
+            <!--    <div fxFlex  fxLayoutAlign="end">
                     <a href="javascript:void(0)">Forget Password</a>
-                </div>
+                </div>-->
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
