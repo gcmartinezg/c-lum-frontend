@@ -1,3 +1,19 @@
-<mat-form-field>
-  <input matInput placeholder="Input">
-</mat-form-field>
+<h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
+  Create {{injectedObject.text}}
+</h2>
+
+<mat-dialog-content>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Input">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary"(click)="crear()" *ngIf="injectedObject.saveBool; else elseButton">Save</button>
+  <ng-template #elseButton>
+      <button class="mat-raised-button mat-primary"(click)="actualizar()">Update</button>
+  </ng-template>
+  <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions>

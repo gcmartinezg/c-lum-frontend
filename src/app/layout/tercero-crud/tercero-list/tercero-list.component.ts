@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Tercero } from 'src/app/shared/domain/tercero';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
 import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/tercero-update-save-dialog.component';
 
 const DATOS: Tercero[] = [
@@ -32,16 +32,12 @@ export class TerceroListComponent implements OnInit {
   @ViewChild(MatSort) sort:MatSort;
 
   constructor(
-    public dialog: MatDialog,
+    public matDialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
     this.getTerceros();
-  }
-
-  applyFilter(filterValue:string){
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getTerceros(){
@@ -50,15 +46,57 @@ export class TerceroListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  openDialogSave(){
-    const dialogRef = this.dialog.open(TerceroUpdateSaveDialogComponent, {});
-    dialogRef.afterClosed().subscribe(result=>{
-      console.log('Dialog cerrado correctamente!');
-    });
+  abrirSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action);
   }
 
-  update(terceroId:number){
-    // TODO falta implementar codigo aqui!
+  aplicarFiltro(filterValue:string){
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = datos;
+
+    return dialogConfig;
+  }
+
+  crear(){
+    let datos = {saveBool : true, text : 'tercero'};
+
+    let matDialogRef = this.matDialog.open(
+      TerceroUpdateSaveDialogComponent, 
+      this.retornarMatDialogConfig(datos)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result != null){
+        this.abrirSnackBar(result, 'OK');
+        this.getTerceros();
+      }
+    });
+
+  }
+
+  actualizar(tercero: Tercero){
+    let data = {saveBool : false, id : tercero.terceroId};
+
+    let matDialogRef = this.matDialog.open(
+      TerceroUpdateSaveDialogComponent, 
+      this.retornarMatDialogConfig(data)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result != null){
+        this.abrirSnackBar(result, 'OK');
+        this.getTerceros();
+      }
+    });
+
   }
 
 }
