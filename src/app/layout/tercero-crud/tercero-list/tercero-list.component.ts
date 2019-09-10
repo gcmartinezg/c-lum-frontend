@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Tercero } from 'src/app/shared/domain/tercero';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
 import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/tercero-update-save-dialog.component';
+import { TerceroService } from 'src/app/shared/services/tercero.service';
 
-const DATOS: Tercero[] = [
+/*const DATOS: Tercero[] = [
   {terceroId: 12345, tDocId: 1, nombre: 'Giovanny Ayala', direccion:'Carrera 100 numero 1-4', telefono:"(032) 2889765", estado: 'S', correo: 'ayala@yopmail.com'},
   {terceroId: 876616, tDocId: 1, nombre: 'Pipe Bueno', direccion:'Avenida 5ta', telefono:"(032) 2889982", estado: 'N', correo:'pbueno@yopmail.com'}
-];
+];*/
 
 @Component({
   selector: 'app-tercero-list',
@@ -16,8 +17,7 @@ const DATOS: Tercero[] = [
 export class TerceroListComponent implements OnInit {
   
   displayedColumns: string[] = [
-    'terceroId',
-    'nDocumento',
+    'idTercero',
     'tDocId',
     'nombre',
     'direccion',
@@ -32,6 +32,7 @@ export class TerceroListComponent implements OnInit {
   @ViewChild(MatSort) sort:MatSort;
 
   constructor(
+    public servicioTercero:TerceroService,
     public matDialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
@@ -41,9 +42,13 @@ export class TerceroListComponent implements OnInit {
   }
 
   getTerceros(){
-    this.dataSource = new MatTableDataSource(DATOS);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.servicioTercero.findAll().subscribe(res=>{
+      console.log(res);
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    }, error=>{});
+    
   }
 
   abrirSnackBar(message: string, action: string) {
@@ -83,7 +88,7 @@ export class TerceroListComponent implements OnInit {
   }
 
   actualizar(terceroId: string){
-    let data = {saveBool : false, id : terceroId};
+    let data = {saveBool : false, text : ""+terceroId};
 
     let matDialogRef = this.matDialog.open(
       TerceroUpdateSaveDialogComponent, 
@@ -97,6 +102,16 @@ export class TerceroListComponent implements OnInit {
       }
     });
 
+  }
+
+  eliminar(terceroId: string){
+    this.servicioTercero.delete(""+terceroId).subscribe(res=>{
+      this.abrirSnackBar(res.mensaje, 'Exito');
+      this.getTerceros();
+    },error=>{
+      this.abrirSnackBar(error.error.mensaje, 'Error');
+    });
+    
   }
 
 }

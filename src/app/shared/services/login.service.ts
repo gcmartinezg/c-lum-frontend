@@ -14,6 +14,6 @@ export class LoginService {
   constructor(public httpClient:HttpClient) { }
 
   tryLoginUser(usuario : Usuario) : Observable<any> {
-    return this.httpClient.post(this.url+"usuario", usuario);
+    return this.httpClient.post(this.url, usuario);
   }
 }

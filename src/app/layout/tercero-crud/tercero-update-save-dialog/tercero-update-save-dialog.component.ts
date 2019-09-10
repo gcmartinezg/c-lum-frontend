@@ -33,6 +33,7 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   @ViewChild(MatSort) sort : MatSort;
 
   ngOnInit() {
+    console.log(this.injectedObject);
     if(!this.injectedObject.saveBool && this.injectedObject.text.length > 0){
       this.getTerceroPorId();
     }

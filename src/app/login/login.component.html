@@ -19,8 +19,8 @@
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput [(ngModel)]="usuario.contrasena" #contrasena id="contrasena" 
-                        name="contrasena" type="password" placeholder="{{ 'Password' | translate }}">
+                        <input matInput [(ngModel)]="usuario.clave" #clave id="clave" 
+                        name="clave" type="password" placeholder="{{ 'Password' | translate }}">
                     </mat-form-field>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div fxFlex>
                     <mat-checkbox color="primary">Recordarme</mat-checkbox>
                 </div>
-                <!-- TODO buscar como hacer 'olvide mi contrasena' -->
+                <!-- TODO buscar como hacer 'olvide mi clave' -->
             <!--    <div fxFlex  fxLayoutAlign="end">
                     <a href="javascript:void(0)">Forget Password</a>
                 </div>-->

@@ -3,7 +3,7 @@ export class Usuario {
         public usuUsuario : string,
         public nDocumento : number,
         public tDocId : number,
-        public contrasena : string,
+        public clave : string,
         public tUsuarioId: number,
         public estado : string = 'S'
     ){}

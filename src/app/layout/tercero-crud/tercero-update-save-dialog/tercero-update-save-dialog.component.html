@@ -4,21 +4,21 @@
 
 <ng-template #elseHeader>
   <h2 mat-dialog-title>
-    Editar {{tercero.terceroId}} - {{tercero.nombre}}
+    Editar {{tercero.idTercero}} - {{tercero.nombre}}
   </h2>
 </ng-template>
 
 <mat-dialog-content>
   <mat-form-field>
     <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
-      [(ngModel)]="tercero.terceroId" #terceroId 
-      id="terceroId" name="terceroId" 
+      [(ngModel)]="tercero.idTercero" #idTercero 
+      id="idTercero" name="idTercero" 
       placeholder="Numero de Documento" disabled
     >
 
     <ng-template #elseInput>
-      <input matInput [(ngModel)]="tercero.terceroId" 
-        #terceroId id="terceroId" name="terceroId" 
+      <input matInput [(ngModel)]="tercero.idTercero" 
+        #idTercero id="idTercero" name="idTercero" 
         placeholder="Numero de Documento"
       >
     </ng-template>
@@ -71,11 +71,11 @@
   <div *ngIf="!injectedObject.saveBool">
     <mat-form-field>
       <mat-label>Estado</mat-label>
-      <mat-select [(ngModel)]="tercero.activo" 
-        #activo id="activo" name="activo"
+      <mat-select [(ngModel)]="tercero.estado" 
+        #estado id="estado" name="estado"
       >
 
-        <mat-option *ngFor="let estado of listaEstados" 
+        <mat-option *ngFor="let estado of listaEstado" 
           [value]="estado.id"
         >
           {{estado.id}} - {{estado.nombre}}

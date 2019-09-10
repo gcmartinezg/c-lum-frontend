@@ -1,6 +1,6 @@
 export class Tercero {
     constructor(
-        public terceroId : number,
+        public idTercero : number,
         public tDocId : number,
         public nombre : string,
         public direccion : string,
