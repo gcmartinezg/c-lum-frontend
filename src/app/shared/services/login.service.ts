@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/C-Lum-rest/rest/login/usuario";
 
   constructor(public httpClient:HttpClient) { }
 
   tryLoginUser(usuario : Usuario) : Observable<any> {
-    return this.httpClient.post(this.url+"login-user", usuario);
+    return this.httpClient.post(this.url+"usuario", usuario);
   }
 }
