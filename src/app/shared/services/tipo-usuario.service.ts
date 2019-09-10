@@ -8,8 +8,7 @@ import { TipoUsuario } from '../domain/tipo-usuario';
 })
 export class TipoUsuarioService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/C-Lum-rest/rest/tipo-usuario/";
 
   constructor(public httpClient:HttpClient) { }
 

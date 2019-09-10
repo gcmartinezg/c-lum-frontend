@@ -8,8 +8,7 @@ import { Usuario } from '../domain/usuario';
 })
 export class UsuarioService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/C-Lum-rest/rest/usuario/";
 
   constructor(public httpClient:HttpClient) { }
 

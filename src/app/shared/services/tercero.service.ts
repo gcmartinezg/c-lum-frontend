@@ -8,8 +8,7 @@ import { Tercero } from '../domain/tercero';
 })
 export class TerceroService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/C-Lum-rest/rest/tercero/";
 
   constructor(public httpClient:HttpClient) { }
 
