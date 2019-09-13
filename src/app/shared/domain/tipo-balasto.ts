@@ -1,6 +1,7 @@
 export class TipoBalasto {
     constructor(
-        public tBalastoId:number,
-        public nombre:string
+        public tipoBalastoId:number,
+        public nombreTipoBalasto:string,
+        public idEstado: number
     ){}
 }

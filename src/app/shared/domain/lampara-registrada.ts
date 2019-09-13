@@ -3,11 +3,12 @@ import { Timestamp } from "rxjs";
 export class LamparaRegistrada {
 
     constructor(
-        public lRegId: number,
-        public usuUsuario: string,
+        public lamparaRegistradaId: number,
+        public usuarioId: string,
         public lamparaId: number,
-        public latitudPosActual: number,
-        public longitudPosActual: number,
-        public fechaHora: Date
+        public latitudPosActualTecnico: number,
+        public longitudPosActualTecnico: number,
+        public fechaHora: Date,
+        public idEstado:number
     ){}
 }

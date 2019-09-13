@@ -1,6 +1,7 @@
 export class TipoLampara {
     constructor(
-        public tLamparaId : number,
-        public nombre : string,
+        public tipoLamparaId : number,
+        public nombreTipoLampara : string,
+        public idEstado: number
     ){}
 }

@@ -1,10 +1,10 @@
 export class RedAlimentacion {
     constructor(
-        public tRedlimentacionAId : number,
-        public tSoporteId : number,
-        public tMaterialId : number,
-        public calibreConductor : number,
-        public tInstalacionId : number,
+        public redAlimentacionId : number,
+        public tipoSoporteId : number,
+        public tipoMaterialId : number,
+        public calibreConductorAwg : string,
+        public tipoInstalacionId : number,
         public lamparaId : number
     ){}
 }

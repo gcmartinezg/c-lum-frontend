@@ -1,10 +1,10 @@
 export class SoporteLampara {
 
     constructor(
-        public posteId:number,
-        public tSoporteId:number,
-        public tMaterialId:number,
-        public lamparaId: number,
-        public longitud: number
+        public soporteLamparaId:number,
+        public tipoSoporteId:number,
+        public tipoMaterialId:number,
+        public longitud: number,
+        public idEstado: number
     ){}
 }

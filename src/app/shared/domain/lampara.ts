@@ -2,16 +2,20 @@ export class Lampara {
     constructor(
         public lamparaId : number,
         public potencia : number,
-        public tLamparaId : number,
+        public tipoLamparaId : number,
         public nivelTension : number,
-        public tBalastroId : number,
+        public tipoBalastoId : number,
         public funcionamiento : string,
-        public tEspacioId : number,
+        public tipoEspacioIluminadoId : number,
         public controlEncendido : string,
         public valorPerdidas : number,
         public transformadorId : number,
-        public fotoUrl : string,
-        public latitud : number,
-        public longitud : number
+        public urlImagen : string,
+        public latitudLampara : number,
+        public longitudLampara : number,
+        public redAlimentacionId: number,
+        public soporteLampara: number,
+        public idEstado: number
+
     ){}
 }

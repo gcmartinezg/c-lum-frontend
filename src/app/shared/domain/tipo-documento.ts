@@ -1,6 +1,7 @@
 export class TipoDocumento {
     constructor(
-        public tDocId : number,
-        public nombre : string,
+        public tipoDocumentoId : number,
+        public nombreTipoDocumento : string,
+        public idEstado: number
     ){}
 }

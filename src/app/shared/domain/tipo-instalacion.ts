@@ -1,6 +1,7 @@
 export class TipoInstalacion {
     constructor(
-        public tInstalacionId : number,
-        public nombre : string,
+        public tipoInstalacionId : number,
+        public nombreTipoInstalacion : string,
+        public idEstado: number
     ){}
 }

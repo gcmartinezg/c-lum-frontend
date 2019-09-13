@@ -1,6 +1,6 @@
 export class Estado {
     constructor(
-        public id : string,
-        public nombre : string
+        public idEstado : string,
+        public estado : string
     ){}
 }
