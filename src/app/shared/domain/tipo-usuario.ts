@@ -1,6 +1,7 @@
 export class TipoUsuario {
     constructor(
-        public tUsuarioId : number,
-        public nombre : string,
+        public tipoUsuarioId : number,
+        public nombreTipoUsuario : string,
+        public idEstado: number
     ){}
 }

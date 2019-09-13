@@ -1,6 +1,7 @@
 export class TipoMaterial {
     constructor(
-        public tMaterialId : number,
-        public nombre : string,
+        public tipoMaterialId : number,
+        public nombreTipoMaterial : string,
+        public idEstado: number
     ){}
 }

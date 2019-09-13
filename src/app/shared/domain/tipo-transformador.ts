@@ -1,6 +1,7 @@
 export class TipoTransformador {
     constructor(
-        public tTransformadorId : number,
-        public nombre : string,
+        public tipoTransformadorId : number,
+        public nombreTipoTransformador : string,
+        public idEstado: number
     ){}
 }
