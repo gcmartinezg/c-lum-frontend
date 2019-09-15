@@ -8,25 +8,24 @@ import { TipoTransformador } from '../domain/tipo-transformador';
 })
 export class TipoTransformadorService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoTransformador/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoTransformador/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoTransformador/" + id);
   }
 
   save(tipoTransformador : TipoTransformador) : Observable<any> {
-    return this.httpClient.post(this.url, tipoTransformador);
+    return this.httpClient.post(this.url + "saveTipoTransformador/", tipoTransformador);
   }
 
   update(tipoTransformador : TipoTransformador) : Observable<any> {
-    return this.httpClient.put(this.url, tipoTransformador);
+    return this.httpClient.put(this.url + "updateTipoTransformador/", tipoTransformador);
   }
 
   /**

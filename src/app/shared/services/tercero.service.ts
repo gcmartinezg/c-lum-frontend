@@ -8,24 +8,24 @@ import { Tercero } from '../domain/tercero';
 })
 export class TerceroService {
 
-  public url:string = "http://localhost:8080/C-Lum-rest/rest/tercero/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tercero/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTercero/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTercero/" + id);
   }
 
   save(tercero : Tercero) : Observable<any> {
-    return this.httpClient.post(this.url, tercero);
+    return this.httpClient.post(this.url + "saveTercero/", tercero);
   }
 
   update(tercero : Tercero) : Observable<any> {
-    return this.httpClient.put(this.url, tercero);
+    return this.httpClient.put(this.url + "updateTercero/", tercero);
   }
 
   /**
@@ -34,7 +34,7 @@ export class TerceroService {
    * Use deactivate(tercero) instead.
    */
   delete(id : String) : Observable<any> {
-    return this.httpClient.delete(this.url + id);
+    return this.httpClient.delete(this.url + "deleteTercero/" + id);
   }
 
   deactivate(tercero : Tercero) : Observable<any> {

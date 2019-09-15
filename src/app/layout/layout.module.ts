@@ -8,7 +8,8 @@ import {
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -17,13 +18,15 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
     declarations: [
         LayoutComponent, 
         NavComponent, 
         TopnavComponent, 
-        SidebarComponent
+        SidebarComponent,
+        ConfirmationDialogComponent
     ],
     imports: [
         CommonModule,
@@ -38,6 +41,8 @@ import { FormsModule } from '@angular/forms';
         MatMenuModule,
         MatListModule,
         TranslateModule,
+        MatDialogModule
     ],
+    entryComponents: [ConfirmationDialogComponent]
 })
 export class LayoutModule { }

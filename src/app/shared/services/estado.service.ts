@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class EstadoService {
 
   public listaEstado : Estado[];
-  public url:string = "http://localhost:8080/clum/rest/controllers/estado/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/estado/";
 
   constructor(
     public httpClient:HttpClient

@@ -8,25 +8,24 @@ import { TipoMaterial } from '../domain/tipo-material';
 })
 export class TipoMaterialService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoMaterial/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoMaterial/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoMaterial/" + id);
   }
 
   save(tipoMaterial : TipoMaterial) : Observable<any> {
-    return this.httpClient.post(this.url, tipoMaterial);
+    return this.httpClient.post(this.url + "saveTipoMaterial/", tipoMaterial);
   }
 
   update(tipoMaterial : TipoMaterial) : Observable<any> {
-    return this.httpClient.put(this.url, tipoMaterial);
+    return this.httpClient.put(this.url + "updateTipoMaterial/", tipoMaterial);
   }
 
   /**

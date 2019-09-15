@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>{{injected.title}}</h2>
+<mat-dialog-content>{{injected.body}}</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button class="mat-raised-button" mat-dialog-close>Cancel</button>
+    <button class="mat-raised-button mat-primary" [mat-dialog-close]="true" cdkFocusInitial>Estoy Seguro</button>
+</mat-dialog-actions>

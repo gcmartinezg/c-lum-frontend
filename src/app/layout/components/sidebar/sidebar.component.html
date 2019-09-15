@@ -3,35 +3,13 @@
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
       <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
     </a>
-    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen1']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Screen1' | translate }}
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tipo-material']">
+      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Material' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/screen2']">
       <mat-icon class="sidenav-icon">people</mat-icon> {{ 'Screen2' | translate }}
     </a>
 
-    <div class="nested-menu">
-      <a mat-list-item (click)="addExpandClass('pages')">
-        <mat-icon class="sidenav-icon">add</mat-icon> {{ 'Tipo Balasto' | translate }}
-      </a>
-      <ul class="nested submenu" [class.expand]="showMenu === 'pages'">
-        <li>
-          <a routerLink="#"
-            ><span>{{ 'Crear' | translate }}</span></a
-          >
-        </li>
-        <li>
-          <a routerLink="#"
-            ><span>{{ 'Lista de clientes' | translate }}</span></a
-          >
-        </li>
-        <li>
-          <a routerLink="#"
-            ><span>{{ 'Crear Cuenta' | translate }}</span></a
-          >
-        </li>
-      </ul>
-    </div>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto-list']">
       <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo' | translate }}
     </a>

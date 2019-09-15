@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './tercero-list/tercero-list.module#TerceroListModule'
+    component: ConfirmationDialogComponent
   }
 ];
 
@@ -12,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TerceroCrudRoutingModule { }
+export class ConfirmationDialogRoutingModule { }

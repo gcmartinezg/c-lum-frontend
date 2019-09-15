@@ -20,6 +20,10 @@ const routes: Routes = [
                 path: 'terceros',
                 loadChildren: './tercero-crud/tercero-crud.module#TerceroCrudModule'
             },
+            {
+                path: 'tipo-material',
+                loadChildren: './tipo-material-crud/tipo-material-crud.module#TipoMaterialCrudModule'
+            }
             //TODO agregar las demas rutas
         ]
     }

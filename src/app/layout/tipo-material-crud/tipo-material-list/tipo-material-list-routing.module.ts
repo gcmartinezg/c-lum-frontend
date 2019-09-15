@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TipoMaterialListComponent } from './tipo-material-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: './tercero-list/tercero-list.module#TerceroListModule'
+    path:'',
+    component: TipoMaterialListComponent
   }
 ];
 
@@ -12,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TerceroCrudRoutingModule { }
+export class TipoMaterialListRoutingModule { }

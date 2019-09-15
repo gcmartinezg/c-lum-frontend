@@ -8,25 +8,24 @@ import { TipoSoporte } from '../domain/tipo-soporte';
 })
 export class TipoSoporteService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoSoporte/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoSoporte/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoSoporte/" + id);
   }
 
   save(tipoSoporte : TipoSoporte) : Observable<any> {
-    return this.httpClient.post(this.url, tipoSoporte);
+    return this.httpClient.post(this.url + "saveTipoSoporte/", tipoSoporte);
   }
 
   update(tipoSoporte : TipoSoporte) : Observable<any> {
-    return this.httpClient.put(this.url, tipoSoporte);
+    return this.httpClient.put(this.url + "updateTipoSoporte/", tipoSoporte);
   }
 
   /**

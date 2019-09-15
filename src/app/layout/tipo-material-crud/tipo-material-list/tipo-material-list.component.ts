@@ -1,44 +1,40 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Tercero } from 'src/app/shared/domain/tercero';
+import { TipoMaterial } from 'src/app/shared/domain/tipo-material';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
-import { TerceroUpdateSaveDialogComponent } from '../tercero-update-save-dialog/tercero-update-save-dialog.component';
-import { TerceroService } from 'src/app/shared/services/tercero.service';
+import { TipoMaterialService } from 'src/app/shared/services/tipo-material.service';
+import { TipoMaterialUpdateSaveDialogComponent } from '../tipo-material-update-save-dialog/tipo-material-update-save-dialog.component';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-  selector: 'app-tercero-list',
-  templateUrl: './tercero-list.component.html',
-  styleUrls: ['./tercero-list.component.scss']
+  selector: 'app-tipo-material-list',
+  templateUrl: './tipo-material-list.component.html',
+  styleUrls: ['./tipo-material-list.component.scss']
 })
-export class TerceroListComponent implements OnInit {
-  
+export class TipoMaterialListComponent implements OnInit {
+
   displayedColumns: string[] = [
-    'idTercero',
-    'tDocId',
-    'nombre',
-    'direccion',
-    'correo',
-    'telefono',
+    'idTipoMaterial',
+    'nombreTipoMaterial',
     'estado',
     'opciones'
   ];
 
-  public dataSource:MatTableDataSource<Tercero>;
+  public dataSource:MatTableDataSource<TipoMaterial>;
   @ViewChild(MatPaginator) paginator: MatPaginator; 
   @ViewChild(MatSort) sort:MatSort;
 
   constructor(
-    public servicioTercero:TerceroService,
+    public servicioTipoMaterial: TipoMaterialService,
     public matDialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.getTerceros();
+    this.getTipoMateriales();
   }
 
-  getTerceros(){
-    this.servicioTercero.findAll().subscribe(res=>{
+  getTipoMateriales(){
+    this.servicioTipoMaterial.findAll().subscribe(res=>{
       console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
@@ -67,34 +63,34 @@ export class TerceroListComponent implements OnInit {
   }
 
   crear(){
-    let datos = {saveBool : true, text : 'tercero'};
+    let datos = {saveBool : true, text : 'tipo material'};
 
     let matDialogRef = this.matDialog.open(
-      TerceroUpdateSaveDialogComponent, 
+      TipoMaterialUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(datos)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTerceros();
+        this.getTipoMateriales();
       }
     });
 
   }
 
-  actualizar(terceroId: string){
-    let data = {saveBool : false, text : ""+terceroId};
+  actualizar(tipoMaterialId: string){
+    let data = {saveBool : false, text : ""+tipoMaterialId};
 
     let matDialogRef = this.matDialog.open(
-      TerceroUpdateSaveDialogComponent, 
+      TipoMaterialUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(data)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTerceros();
+        this.getTipoMateriales();
       }
     });
 
@@ -102,29 +98,29 @@ export class TerceroListComponent implements OnInit {
 
   /**
    * 
-   * @param terceroId 
-   * @deprecated use desactivar(tercero) en su lugar
+   * @param tipoMaterialId 
+   * @deprecated usar desactivar(id) en su lugar
    */
 
-  eliminar(terceroId: string){
-    this.servicioTercero.delete(""+terceroId).subscribe(res=>{
+  eliminar(tipoMaterialId: string){
+    this.servicioTipoMaterial.delete(""+tipoMaterialId).subscribe(res=>{
       this.abrirSnackBar(res.mensaje, 'Exito');
-      this.getTerceros();
+      this.getTipoMateriales();
     },error=>{
       this.abrirSnackBar(error.error.mensaje, 'Error');
     });
     
   }
 
-  esInactivo(tercero: Tercero) : boolean{
-    return tercero.idEstado_Estado == 2;
+  esInactivo(tipoMaterial: TipoMaterial) : boolean{
+    return tipoMaterial.idEstado_Estado == 2;
   }
 
-  desactivar(tercero : Tercero){
+  desactivar(tipoMaterial : TipoMaterial){
     let data = {
-      title : "Desactivar tercero", 
-      body : "¿Esta usted seguro de querer desactivar el tercero " +
-      "con id " + tercero.terceroId + "?"
+      title : "Desactivar tipo de material", 
+      body : "¿Esta usted seguro de querer desactivar el tipo " +
+      "de material con id " + tipoMaterial.tipoMaterialId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -134,10 +130,10 @@ export class TerceroListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.servicioTercero.deactivate(tercero).subscribe(
+        this.servicioTipoMaterial.deactivate(tipoMaterial).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTerceros();
+            this.getTipoMateriales();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');
@@ -148,11 +144,11 @@ export class TerceroListComponent implements OnInit {
 
   }
 
-  activar(tercero : Tercero){
+  activar(tipoMaterial : TipoMaterial){
     let data = {
-      title : "Activar tercero", 
-      body : "¿Esta usted seguro de querer activar el tercero " +
-      "con id " + tercero.terceroId + "?"
+      title : "Activar tipo de material", 
+      body : "¿Esta usted seguro de querer activar el tipo " +
+      "de material con id " + tipoMaterial.tipoMaterialId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -162,10 +158,10 @@ export class TerceroListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.servicioTercero.activate(tercero).subscribe(
+        this.servicioTipoMaterial.activate(tipoMaterial).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTerceros();
+            this.getTipoMateriales();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');

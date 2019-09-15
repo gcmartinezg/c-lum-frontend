@@ -8,25 +8,24 @@ import { TipoZona } from '../domain/tipo-zona';
 })
 export class TipoZonaService {
 
-  //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoZona/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoZona/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoZona/" + id);
   }
 
   save(tipoZona : TipoZona) : Observable<any> {
-    return this.httpClient.post(this.url, tipoZona);
+    return this.httpClient.post(this.url + "saveTipoZona/", tipoZona);
   }
 
   update(tipoZona : TipoZona) : Observable<any> {
-    return this.httpClient.put(this.url, tipoZona);
+    return this.httpClient.put(this.url + "updateTipoZona/", tipoZona);
   }
 
   /**

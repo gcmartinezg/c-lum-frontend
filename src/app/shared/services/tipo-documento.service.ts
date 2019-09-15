@@ -8,24 +8,24 @@ import { TipoDocumento } from '../domain/tipo-documento';
 })
 export class TipoDocumentoService {
 
-  public url:string = "http://localhost:8080/C-Lum-rest/rest/tipo-documento/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoDocumento/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoDocumeto/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoDocumento/" + id);
   }
 
   save(tipoDocumento : TipoDocumento) : Observable<any> {
-    return this.httpClient.post(this.url, tipoDocumento);
+    return this.httpClient.post(this.url + "saveTipoDocumento/", tipoDocumento);
   }
 
   update(tipoDocumento : TipoDocumento) : Observable<any> {
-    return this.httpClient.put(this.url, tipoDocumento);
+    return this.httpClient.put(this.url + "updateTipoDocumento/", tipoDocumento);
   }
 
   /**
@@ -34,7 +34,7 @@ export class TipoDocumentoService {
    * Use deactivate(tipoDocumento) instead.
    */
   delete(id : String) : Observable<any> {
-    return this.httpClient.delete(this.url + id);
+    return this.httpClient.delete(this.url + "deleteTipoDocumento" + id);
   }
 
   deactivate(tipoDocumento : TipoDocumento) : Observable<any> {

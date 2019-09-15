@@ -51,10 +51,16 @@
           <mat-icon>edit</mat-icon>
           <span>Editar</span>
         </button>
-        <button mat-menu-item (click)="eliminar(tercero.idTercero)">
-          <mat-icon>delete</mat-icon>
-          <span>Borrar</span>
+        <button mat-menu-item (click)="desactivar(tercero)" *ngIf="!esInactivo(tercero);else activateOpt">
+          <mat-icon>check_box_outline_blank</mat-icon>
+          <span>Desactivar</span>
         </button>
+        <ng-template #activateOpt>
+          <button mat-menu-item (click)="activar(tercero)">
+            <mat-icon>check_box</mat-icon>
+            <span>Activar</span>
+          </button>
+        </ng-template>
       </mat-menu>
     </td>
   </ng-container>

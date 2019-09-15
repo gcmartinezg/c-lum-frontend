@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './tercero-list/tercero-list.module#TerceroListModule'
+    loadChildren:'./tipo-material-list/tipo-material-list.module#TipoMaterialListModule'
   }
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TerceroCrudRoutingModule { }
+export class TipoMaterialCrudRoutingModule { }

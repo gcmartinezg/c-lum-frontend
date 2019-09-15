@@ -8,24 +8,24 @@ import { TipoUsuario } from '../domain/tipo-usuario';
 })
 export class TipoUsuarioService {
 
-  public url:string = "http://localhost:8080/C-Lum-rest/rest/tipo-usuario/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoUsuario/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url + "getDataTipoUsuario/");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoUsuario/" + id);
   }
 
   save(tipoUsuario : TipoUsuario) : Observable<any> {
-    return this.httpClient.post(this.url, tipoUsuario);
+    return this.httpClient.post(this.url + "saveTipoUsuario/", tipoUsuario);
   }
 
   update(tipoUsuario : TipoUsuario) : Observable<any> {
-    return this.httpClient.put(this.url, tipoUsuario);
+    return this.httpClient.put(this.url + "updateTipoUsuario/", tipoUsuario);
   }
 
   /**

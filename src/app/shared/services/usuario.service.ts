@@ -8,7 +8,7 @@ import { Usuario } from '../domain/usuario';
 })
 export class UsuarioService {
   //FIXME no se pueden ingresar nombres de usuario con puntos
-  public url:string = "http://localhost:8080/clum/rest/controllers/usuario/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/usuario/";
 
   constructor(public httpClient:HttpClient) { }
 

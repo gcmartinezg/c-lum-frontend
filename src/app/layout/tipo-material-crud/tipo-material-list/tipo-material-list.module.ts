@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TerceroListRoutingModule } from './tercero-list-routing.module';
-import { TerceroListComponent } from './tercero-list.component';
+import { TipoMaterialListRoutingModule } from './tipo-material-list-routing.module';
+import { TipoMaterialListComponent } from './tipo-material-list.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatIconModule, MatButtonModule, MatMenuModule, MatPaginatorModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
 
 @NgModule({
-  declarations: [TerceroListComponent],
+  declarations: [TipoMaterialListComponent],
   imports: [
     CommonModule,
+    TipoMaterialListRoutingModule,
     FormsModule,
-    TerceroListRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
@@ -24,4 +24,4 @@ import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatI
     MatDialogModule,
   ]
 })
-export class TerceroListModule { }
+export class TipoMaterialListModule { }
