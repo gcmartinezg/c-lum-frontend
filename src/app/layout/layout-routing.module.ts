@@ -23,6 +23,10 @@ const routes: Routes = [
             {
                 path: 'tipo-material',
                 loadChildren: './tipo-material-crud/tipo-material-crud.module#TipoMaterialCrudModule'
+            },
+            {
+                path: 'tipo-balasto',
+                loadChildren: './tipo-balasto-crud/tipo-balasto-crud.module#TipoBalastoCrudModule'
             }
             //TODO agregar las demas rutas
         ]

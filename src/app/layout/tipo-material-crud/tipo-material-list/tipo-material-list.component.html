@@ -32,15 +32,15 @@
             <span>Editar</span>
           </button>
           <button mat-menu-item (click)="desactivar(tipoMaterial)" *ngIf="!esInactivo(tipoMaterial);else activateOpt">
-              <mat-icon>check_box_outline_blank</mat-icon>
-              <span>Desactivar</span>
+            <mat-icon>check_box_outline_blank</mat-icon>
+            <span>Desactivar</span>
+          </button>
+          <ng-template #activateOpt>
+            <button mat-menu-item (click)="activar(tipoMaterial)">
+              <mat-icon>check_box</mat-icon>
+              <span>Activar</span>
             </button>
-            <ng-template #activateOpt>
-              <button mat-menu-item (click)="activar(tipoMaterial)">
-                <mat-icon>check_box</mat-icon>
-                <span>Activar</span>
-              </button>
-            </ng-template>
+          </ng-template>
         </mat-menu>
       </td>
     </ng-container>

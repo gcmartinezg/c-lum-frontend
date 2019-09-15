@@ -13,5 +13,10 @@
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto-list']">
       <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo' | translate }}
     </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto']">
+      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Balasto' | translate }}
+    </a>
+    </mat-nav-list>
+  </div>
   </mat-nav-list>
 </div>
