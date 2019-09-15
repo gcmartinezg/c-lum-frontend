@@ -36,6 +36,10 @@ const routes: Routes = [
                 path: 'tipo-transformador',
                 loadChildren: './tipo-transformador-crud/tipo-transformador-crud.module#TipoTransformadorCrudModule'
             },
+            {
+                path: 'tipo-usuario',
+                loadChildren: './tipo-usuario-crud/tipo-usuario-crud.module#TipoUsuarioCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }
