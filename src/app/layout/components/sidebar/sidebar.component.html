@@ -3,24 +3,23 @@
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
       <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
     </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto']">
+      <mat-icon class="sidenav-icon">calendar_view_day</mat-icon> {{ 'Tipo Balasto' | translate }}
+    </a>
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tipo-material']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Material' | translate }}
+      <mat-icon class="sidenav-icon">dynamic_feed</mat-icon> {{ 'Tipo Material' | translate }}
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-soporte']">
+      <mat-icon class="sidenav-icon">developer_mode</mat-icon> {{ 'Tipo Soporte' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tipo-transformador']">
-      <mat-icon class="sidenav-icon">people</mat-icon> {{ 'Tipo Transformador' | translate }}
-    </a>
-
-    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-soporte']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Soporte' | translate }}
-    </a>
-    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Balasto' | translate }}
+      <mat-icon class="sidenav-icon">border_outer</mat-icon> {{ 'Tipo Transformador' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-usuario']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Usuario' | translate }}
+      <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Tipo Usuario' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-zona']">
-      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Zona' | translate }}
+      <mat-icon class="sidenav-icon">where_to_vote</mat-icon> {{ 'Tipo Zona' | translate }}
     </a>
   </mat-nav-list>
 </div>
