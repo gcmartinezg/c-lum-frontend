@@ -1,0 +1,63 @@
+<h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
+  Crear {{injectedObject.text}}
+</h2>
+
+<ng-template #elseHeader>
+  <h2 mat-dialog-title>
+    Editar {{tipoBalasto.tipoBalastoId}} - {{tipoBalasto.nombreTipoBalasto}}
+  </h2>
+</ng-template>
+
+<mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
+      [(ngModel)]="tipoBalasto.tipoBalastoId" #tipoBalastoId 
+      id="tipoBalastoId" name="tipoBalastoId" 
+      placeholder="Id Tipo Balasto" disabled
+    >
+
+    <ng-template #elseInput>
+      <input matInput [(ngModel)]="tipoBalasto.tipoBalastoId" 
+        #tipoBalastoId id="tipoBalastoId" name="tipoBalastoId" 
+        placeholder="Id Tipo Balasto"
+      >
+    </ng-template>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tipoBalasto.nombreTipoBalasto" 
+      #nombreTipoBalasto id="nombreTipoBalasto" name="nombreTipoBalasto" placeholder="NombreTipoBalasto"
+    >
+  </mat-form-field><br>
+
+  <div *ngIf="!injectedObject.saveBool">
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <mat-select [(ngModel)]="tipoBalasto.idEstado_Estado" 
+        #tipoBalasto id="tipoBalasto" name="tipoBalasto"
+      >
+
+        <mat-option *ngFor="let estado of listaEstado" 
+          [value]="estado.idEstado"
+        >
+          {{estado.idEstado}} - {{estado.estado}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="crear()"
+    *ngIf="injectedObject.saveBool; else elseButton">Guardar</button>
+  <ng-template #elseButton>
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
+  </ng-template>
+  <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>
