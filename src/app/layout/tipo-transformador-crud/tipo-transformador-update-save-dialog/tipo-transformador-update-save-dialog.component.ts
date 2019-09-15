@@ -1,44 +1,44 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { TipoSoporte } from 'src/app/shared/domain/tipo-soporte';
+import { TipoTransformador } from 'src/app/shared/domain/tipo-transformador';
 import { Estado } from 'src/app/shared/domain/estado';
-import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { UpdateSaveObject } from 'src/app/shared/domain/update-save-object';
-import { TipoSoporteService } from 'src/app/shared/services/tipo-soporte.service';
+import { TipoTransformadorService } from 'src/app/shared/services/tipo-transformador.service';
 import { EstadoService } from 'src/app/shared/services/estado.service';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-  selector: 'app-tipo-soporte-update-save-dialog',
-  templateUrl: './tipo-soporte-update-save-dialog.component.html',
-  styleUrls: ['./tipo-soporte-update-save-dialog.component.scss']
+  selector: 'app-tipo-transformador-update-save-dialog',
+  templateUrl: './tipo-transformador-update-save-dialog.component.html',
+  styleUrls: ['./tipo-transformador-update-save-dialog.component.scss']
 })
-export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
+export class TipoTransformadorUpdateSaveDialogComponent implements OnInit {
 
-  tipoSoporte : TipoSoporte = new TipoSoporte(null,"");
+  tipoTransformador : TipoTransformador = new TipoTransformador(null,"");
   
   listaEstado : Estado[];
 
   constructor(
-    private dialogRef: MatDialogRef<TipoSoporteUpdateSaveDialogComponent>,
+    private dialogRef: MatDialogRef<TipoTransformadorUpdateSaveDialogComponent>,
     private snackBar : MatSnackBar,
     private matDialog : MatDialog,
     @Inject(MAT_DIALOG_DATA) public injectedObject: UpdateSaveObject,
-    public servicioTipoSoporte : TipoSoporteService,
+    public servicioTipoTransformador : TipoTransformadorService,
     public servicioEstado : EstadoService
   ) { }
 
   ngOnInit() {
     console.log(this.injectedObject);
     if(!this.injectedObject.saveBool){
-      this.getTipoSoportePorId();
+      this.getTipoTransformadorPorId();
     }
 
     this.getListaEstado();
   }
 
-  getTipoSoportePorId() {
-    this.servicioTipoSoporte.findById(this.injectedObject.text).subscribe(result=>{
-      this.tipoSoporte = result;
+  getTipoTransformadorPorId() {
+    this.servicioTipoTransformador.findById(this.injectedObject.text).subscribe(result=>{
+      this.tipoTransformador = result;
     });
   }
 
@@ -65,9 +65,9 @@ export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
 
   actualizar() {
     let data = {
-      title : "Actualizar tipo soporte", 
+      title : "Actualizar tipo transformador", 
       body : "¿Esta usted seguro de querer actualizar el tipo " +
-      "de soporte con id " + this.tipoSoporte.tipoSoporteId + "?"
+      "de transformador con id " + this.tipoTransformador.tipoTransformadorId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -77,7 +77,7 @@ export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result === true){
-      this.servicioTipoSoporte.update(this.tipoSoporte).subscribe(
+      this.servicioTipoTransformador.update(this.tipoTransformador).subscribe(
         data=>{
           this.dialogRef.close(data.mensaje);
         },
@@ -92,9 +92,9 @@ export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
 
   crear() {
     let data = {
-      title : "Crear tipo soporte", 
+      title : "Crear tipo transformador", 
       body : "¿Esta usted seguro de querer crear el tipo " +
-      "de soporte con id " + this.tipoSoporte.tipoSoporteId + "?"
+      "de transformador con id " + this.tipoTransformador.tipoTransformadorId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -104,7 +104,7 @@ export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result === true){
-      this.servicioTipoSoporte.save(this.tipoSoporte).subscribe(
+      this.servicioTipoTransformador.save(this.tipoTransformador).subscribe(
         data=>{
           this.dialogRef.close(data.mensaje);
         },

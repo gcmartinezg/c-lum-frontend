@@ -4,37 +4,37 @@
 
 <ng-template #elseHeader>
   <h2 mat-dialog-title>
-    Editar {{tipoSoporte.tipoSoporteId}} - {{tipoSoporte.nombreTipoSoporte}}
+    Editar {{tipoTransformador.tipoTransformadorId}} - {{tipoTransformador.nombreTipoTransformador}}
   </h2>
 </ng-template>
 
 <mat-dialog-content>
   <mat-form-field>
     <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
-      [(ngModel)]="tipoSoporte.tipoSoporteId" #tipoSoporteId 
-      id="tipoSoporteId" name="tipoSoporteId" 
-      placeholder="ID Tipo Soporte" disabled
+      [(ngModel)]="tipoTransformador.tipoTransformadorId" #tipoTransformadorId 
+      id="tipoTransformadorId" name="tipoTransformadorId" 
+      placeholder="ID Tipo Transformador" disabled
     >
 
     <ng-template #elseInput>
-      <input matInput [(ngModel)]="tipoSoporte.tipoSoporteId" 
-      #tipoSoporteId id="tipoSoporteId" name="tipoSoporteId" 
-      placeholder="ID Tipo Soporte"
+      <input matInput [(ngModel)]="tipoTransformador.tipoTransformadorId" 
+      #tipoTransformadorId id="tipoTransformadorId" name="tipoTransformadorId" 
+      placeholder="ID Tipo Transformador"
       >
     </ng-template>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="tipoSoporte.nombreTipoSoporte" 
-      #nombreTipoSoporte id="nombreTipoSoporte" name="nombreTipoSoporte" 
-      placeholder="Nombre Tipo Soporte"
+    <input matInput [(ngModel)]="tipoTransformador.nombreTipoTransformador" 
+      #nombreTipoTransformador id="nombreTipoTransformador" name="nombreTipoTransformador" 
+      placeholder="Nombre Tipo Transformador"
     >
   </mat-form-field>
 
   <div *ngIf="injectedObject.saveBool">
       <mat-form-field>
         <mat-label>Estado</mat-label>
-        <mat-select [(ngModel)]="tipoSoporte.idEstado_Estado" 
+        <mat-select [(ngModel)]="tipoTransformador.idEstado_Estado" 
           #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
         >
   
