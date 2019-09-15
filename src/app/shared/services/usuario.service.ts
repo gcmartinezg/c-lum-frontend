@@ -7,25 +7,25 @@ import { Usuario } from '../domain/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-
-  public url:string = "http://localhost:8080/C-Lum-rest/rest/usuario/";
+  //FIXME no se pueden ingresar nombres de usuario con puntos
+  public url:string = "http://localhost:8080/clum/rest/controllers/usuario/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url+"getDataUsuario");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url+"getUsuario/"+ id);
   }
 
   save(usuario : Usuario) : Observable<any> {
-    return this.httpClient.post(this.url, usuario);
+    return this.httpClient.post(this.url+"saveUsuario", usuario);
   }
 
   update(usuario : Usuario) : Observable<any> {
-    return this.httpClient.put(this.url, usuario);
+    return this.httpClient.put(this.url+"updateUsuario/", usuario);
   }
 
   /**

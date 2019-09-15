@@ -1,9 +1,9 @@
 export class Usuario {
     constructor(
         public usuarioId : string,
-        public terceroId: number,
+        public terceroId_Tercero: number,
         public contrasenia : string,
-        public tipoUsuarioId: number,
-        public idEstado: number
+        public tipoUsuarioId_TipoUsuario: number,
+        public idEstado_Estado: number
     ){}
 }

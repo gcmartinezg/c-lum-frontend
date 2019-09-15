@@ -1,26 +1,23 @@
 <div class="login-page">
     <div class="content">
+        <!-- <h1 class="app-name">Sb Admin Material</h1> -->
         <form class="login-form" fxFlex  >
             <div class="text-center">
-                <h2 class="app-name">C-LUM Portal Web</h2>
+                <h2 class="app-name">Censo Luminario</h2>
             </div>
-            <!--TODO hacer logo de la aplicacion-->
-            <!--<div class="text-center">
-                <img class="app-logo" src="../../assets/images/western_king673ab7_ffc107.png">
-            </div>-->
             <div fxFlex  fxlayout="row" fxlayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput [(ngModel)]="usuario.usuUsuario" #usuUsuario id="usuUsuario" 
-                        name="usuUsuario" placeholder="{{ 'Username' | translate }}">
+                        <input matInput [(ngModel)]="usuario.usuarioId" #usuarioId id="usuarioId" 
+                        name="usuarioId" placeholder="Usuario">
                     </mat-form-field>
                 </div>
             </div>
             <div fxFlex  fxLayout="row" fxLayout.lt-md="column">
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
-                        <input matInput [(ngModel)]="usuario.clave" #clave id="clave" 
-                        name="clave" type="password" placeholder="{{ 'Password' | translate }}">
+                        <input matInput [(ngModel)]="usuario.contrasenia" #contrasenia id="contrasenia" 
+                        name="contrasenia" type="password" placeholder="Clave">
                     </mat-form-field>
                 </div>
             </div>
@@ -28,7 +25,7 @@
                 <div fxFlex>
                     <mat-checkbox color="primary">Recordarme</mat-checkbox>
                 </div>
-                <!-- TODO buscar como hacer 'olvide mi clave' -->
+                <!-- TODO buscar como hacer 'olvide mi contrasenia' -->
             <!--    <div fxFlex  fxLayoutAlign="end">
                     <a href="javascript:void(0)">Forget Password</a>
                 </div>-->

@@ -15,7 +15,7 @@ import { EstadoService } from 'src/app/shared/services/estado.service';
 })
 export class TerceroUpdateSaveDialogComponent implements OnInit {
 
-  tercero : Tercero = new Tercero(null,1,'','','',null);
+  tercero : Tercero = new Tercero(null,null,"","","",null,null);
   
   listaTipoDocumento : TipoDocumento[];
   listaEstado : Estado[];
@@ -55,7 +55,9 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   }
 
   getListaEstado() {
-    this.listaEstado = this.servicioEstado.findAll();
+    this.servicioEstado.findAll().subscribe(result=>{
+      this.listaEstado =  result;
+    });
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
