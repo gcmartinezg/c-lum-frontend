@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA, MatPaginator, MatSort } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA, MatPaginator, MatSort, MatDialog, MatDialogConfig } from '@angular/material';
 import { UpdateSaveObject } from 'src/app/shared/domain/update-save-object';
 import { TerceroService } from 'src/app/shared/services/tercero.service';
 import { TipoDocumentoService } from 'src/app/shared/services/tipo-documento.service';
@@ -7,6 +7,7 @@ import { Tercero } from 'src/app/shared/domain/tercero';
 import { TipoDocumento } from 'src/app/shared/domain/tipo-documento';
 import { Estado } from 'src/app/shared/domain/estado';
 import { EstadoService } from 'src/app/shared/services/estado.service';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-tercero-update-save-dialog',
@@ -23,6 +24,7 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<TerceroUpdateSaveDialogComponent>,
     private snackBar : MatSnackBar,
+    private matDialog : MatDialog,
     @Inject(MAT_DIALOG_DATA) public injectedObject: UpdateSaveObject,
     public servicioTercero : TerceroService,
     public servicioTipoDoc : TipoDocumentoService,
@@ -34,7 +36,7 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.injectedObject);
-    if(!this.injectedObject.saveBool && this.injectedObject.text.length > 0){
+    if(!this.injectedObject.saveBool){
       this.getTerceroPorId();
     }
 
@@ -64,24 +66,69 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
     this.snackBar.open(mensaje, accion);
   }
 
+  retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = datos;
+
+    return dialogConfig;
+  }
+
   actualizar() {
-    this.servicioTercero.update(this.tercero).subscribe(
-      data=>{
-        this.dialogRef.close(data.mensaje);
-      },
-      error=>{
-        this.abrirSnackBar(error.error.mensaje, 'OK');
-      });
+    let data = {
+      title : "Actualizar tercero", 
+      body : "¿Esta usted seguro de querer actualizar el tercero " +
+      "con id " + this.tercero.terceroId + "?"
+    };
+    
+    let matDialogRef = this.matDialog.open(
+      ConfirmationDialogComponent,
+      this.retornarMatDialogConfig(data)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result === true){
+      this.servicioTercero.update(this.tercero).subscribe(
+        data=>{
+          this.dialogRef.close(data.mensaje);
+        },
+        error=>{
+          this.abrirSnackBar(error.error.mensaje, 'OK');
+        });
+      }
+
+    });
+
   }
 
   crear() {
-    this.servicioTercero.save(this.tercero).subscribe(
-      data=>{
-        this.dialogRef.close(data.mensaje);
-      },
-      error=>{
-        this.abrirSnackBar(error.error.mensaje, 'OK');
-      });
+    let data = {
+      title : "Crear tercero", 
+      body : "¿Esta usted seguro de querer crear el tercero " +
+      "con id " + this.tercero.terceroId + "?"
+    };
+    
+    let matDialogRef = this.matDialog.open(
+      ConfirmationDialogComponent,
+      this.retornarMatDialogConfig(data)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result === true){
+      this.servicioTercero.save(this.tercero).subscribe(
+        data=>{
+          this.dialogRef.close(data.mensaje);
+        },
+        error=>{
+          this.abrirSnackBar(error.error.mensaje, 'OK');
+        });
+      }
+      
+    });
+
   }
 
   cerrar() {

@@ -13,7 +13,7 @@ export class TipoDocumentoService {
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url + "getDataTipoDocumeto/");
+    return this.httpClient.get(this.url + "getDataTipoDocumento/");
   }
 
   findById(id : String) : Observable<any> {

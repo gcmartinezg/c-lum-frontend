@@ -4,21 +4,21 @@
 
 <ng-template #elseHeader>
   <h2 mat-dialog-title>
-    Editar {{tercero.idTercero}} - {{tercero.nombre}}
+    Editar {{tercero.terceroId}} - {{tercero.nombreTercero}}
   </h2>
 </ng-template>
 
 <mat-dialog-content>
   <mat-form-field>
     <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
-      [(ngModel)]="tercero.idTercero" #idTercero 
-      id="idTercero" name="idTercero" 
+      [(ngModel)]="tercero.terceroId" #terceroId 
+      id="terceroId" name="terceroId" 
       placeholder="Numero de Documento" disabled
     >
 
     <ng-template #elseInput>
-      <input matInput [(ngModel)]="tercero.idTercero" 
-        #idTercero id="idTercero" name="idTercero" 
+      <input matInput [(ngModel)]="tercero.terceroId" 
+        #terceroId id="terceroId" name="terceroId" 
         placeholder="Numero de Documento"
       >
     </ng-template>
@@ -27,14 +27,15 @@
   <div *ngIf="injectedObject.saveBool">
     <mat-form-field>
       <mat-label>Tipo de Documento</mat-label>
-      <mat-select [(ngModel)]="tercero.tDocId" 
-        #tDocId id="tDocId" name="tDocId"
+      <mat-select [(ngModel)]="tercero.tipoDocumentoId_TipoDocumento" 
+        #tipoDocumentoId_TipoDocumento id="tipoDocumentoId_TipoDocumento" 
+        name="tipoDocumentoId_TipoDocumento"
       >
 
         <mat-option *ngFor="let tDoc of listaTipoDocumento" 
-          [value]="tDoc.tDocId"
+          [value]="tDoc.tipoDocumentoId"
         >
-          {{tDoc.tDocId}} - {{tDoc.nombre}}
+          {{tDoc.tipoDocumentoId}} - {{tDoc.nombreTipoDocumento}}
         </mat-option>
 
       </mat-select>
@@ -42,8 +43,9 @@
   </div>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="tercero.nombre" 
-      #nombre id="nombre" name="nombre" placeholder="Nombre"
+    <input matInput [(ngModel)]="tercero.nombreTercero" 
+      #nombreTercero id="nombreTercero" name="nombreTercero" 
+      placeholder="Nombre"
     >
   </mat-form-field><br>
 
@@ -62,8 +64,8 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="tercero.correo" 
-      #correo id="correo" name="correo" 
+    <input matInput [(ngModel)]="tercero.email" 
+      #email id="email" name="email" 
       placeholder="Correo"
     >
   </mat-form-field>
@@ -71,14 +73,14 @@
   <div *ngIf="!injectedObject.saveBool">
     <mat-form-field>
       <mat-label>Estado</mat-label>
-      <mat-select [(ngModel)]="tercero.estado" 
+      <mat-select [(ngModel)]="tercero.idEstado_Estado" 
         #estado id="estado" name="estado"
       >
 
         <mat-option *ngFor="let estado of listaEstado" 
-          [value]="estado.id"
+          [value]="estado.idEstado"
         >
-          {{estado.id}} - {{estado.nombre}}
+          {{estado.idEstado}} - {{estado.estado}}
         </mat-option>
 
       </mat-select>

@@ -6,12 +6,12 @@
     <!-- Position Column -->
     <ng-container matColumnDef="idTercero">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Tercero </th>
-      <td mat-cell *matCellDef="let tercero"> {{tercero.idTercero}} </td>
+      <td mat-cell *matCellDef="let tercero"> {{tercero.terceroId}} </td>
     </ng-container>
   
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-      <td mat-cell *matCellDef="let tercero"> {{tercero.nombre}} </td>
+      <td mat-cell *matCellDef="let tercero"> {{tercero.nombreTercero}} </td>
     </ng-container>
   
     <ng-container matColumnDef="direccion">
@@ -21,7 +21,7 @@
   
     <ng-container matColumnDef="correo">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
-      <td mat-cell *matCellDef="let tercero"> {{tercero.correo}} </td>
+      <td mat-cell *matCellDef="let tercero"> {{tercero.email}} </td>
     </ng-container>
   
     <ng-container matColumnDef="telefono">
@@ -31,12 +31,12 @@
 
     <ng-container matColumnDef="estado">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado. </th>
-      <td mat-cell *matCellDef="let tercero"> {{tercero.estado}} </td>
+      <td mat-cell *matCellDef="let tercero"> {{tercero.idEstado_Estado}} </td>
     </ng-container>
 
     <ng-container matColumnDef="tDocId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo documento Id. </th>
-      <td mat-cell *matCellDef="let tercero"> {{tercero.tDocId}} </td>
+      <td mat-cell *matCellDef="let tercero"> {{tercero.tipoDocumentoId_TipoDocumento}} </td>
     </ng-container>
 
     <!-- Star Column -->
@@ -47,7 +47,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menuTercero="matMenu">
-        <button mat-menu-item (click)="actualizar(tercero.idTercero)">
+        <button mat-menu-item (click)="actualizar(tercero.terceroId)">
           <mat-icon>edit</mat-icon>
           <span>Editar</span>
         </button>

@@ -27,7 +27,11 @@ const routes: Routes = [
             {
                 path: 'tipo-balasto',
                 loadChildren: './tipo-balasto-crud/tipo-balasto-crud.module#TipoBalastoCrudModule'
-            }
+            },
+            {
+                path: 'tipo-soporte',
+                loadChildren: './tipo-soporte-crud/tipo-soporte-crud.module#TipoSoporteCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }

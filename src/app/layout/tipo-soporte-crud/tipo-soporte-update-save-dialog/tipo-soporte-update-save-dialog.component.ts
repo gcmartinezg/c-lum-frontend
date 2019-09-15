@@ -1,42 +1,42 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { TipoMaterial } from 'src/app/shared/domain/tipo-material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { TipoSoporte } from 'src/app/shared/domain/tipo-soporte';
 import { Estado } from 'src/app/shared/domain/estado';
-import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA, MatPaginator, MatSort } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
 import { UpdateSaveObject } from 'src/app/shared/domain/update-save-object';
-import { TipoMaterialService } from 'src/app/shared/services/tipo-material.service';
+import { TipoSoporteService } from 'src/app/shared/services/tipo-soporte.service';
 import { EstadoService } from 'src/app/shared/services/estado.service';
 
 @Component({
-  selector: 'app-tipo-material-update-save-dialog',
-  templateUrl: './tipo-material-update-save-dialog.component.html',
-  styleUrls: ['./tipo-material-update-save-dialog.component.scss']
+  selector: 'app-tipo-soporte-update-save-dialog',
+  templateUrl: './tipo-soporte-update-save-dialog.component.html',
+  styleUrls: ['./tipo-soporte-update-save-dialog.component.scss']
 })
-export class TipoMaterialUpdateSaveDialogComponent implements OnInit {
+export class TipoSoporteUpdateSaveDialogComponent implements OnInit {
 
-  tipoMaterial : TipoMaterial = new TipoMaterial(null,"");
+  tipoSoporte : TipoSoporte = new TipoSoporte(null,"");
   
   listaEstado : Estado[];
 
   constructor(
-    private dialogRef: MatDialogRef<TipoMaterialUpdateSaveDialogComponent>,
+    private dialogRef: MatDialogRef<TipoSoporteUpdateSaveDialogComponent>,
     private snackBar : MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public injectedObject: UpdateSaveObject,
-    public servicioTipoMaterial : TipoMaterialService,
+    public servicioTipoSoporte : TipoSoporteService,
     public servicioEstado : EstadoService
   ) { }
 
   ngOnInit() {
     console.log(this.injectedObject);
     if(!this.injectedObject.saveBool){
-      this.getTipoMaterialPorId();
+      this.getTipoSoportePorId();
     }
 
     this.getListaEstado();
   }
 
-  getTipoMaterialPorId() {
-    this.servicioTipoMaterial.findById(this.injectedObject.text).subscribe(result=>{
-      this.tipoMaterial = result;
+  getTipoSoportePorId() {
+    this.servicioTipoSoporte.findById(this.injectedObject.text).subscribe(result=>{
+      this.tipoSoporte = result;
     });
   }
 
@@ -51,7 +51,7 @@ export class TipoMaterialUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
-    this.servicioTipoMaterial.update(this.tipoMaterial).subscribe(
+    this.servicioTipoSoporte.update(this.tipoSoporte).subscribe(
       data=>{
         this.dialogRef.close(data.mensaje);
       },
@@ -61,7 +61,7 @@ export class TipoMaterialUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
-    this.servicioTipoMaterial.save(this.tipoMaterial).subscribe(
+    this.servicioTipoSoporte.save(this.tipoSoporte).subscribe(
       data=>{
         this.dialogRef.close(data.mensaje);
       },
