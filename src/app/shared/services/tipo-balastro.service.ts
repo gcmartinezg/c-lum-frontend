@@ -9,24 +9,24 @@ import { TipoBalasto } from '../domain/tipo-balasto';
 export class TipoBalastroService {
 
   //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoBalasto/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url+"getDataTipoBalasto");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url+"getTipoBalasto/"+ id);
   }
 
   save(tipoBalastro : TipoBalasto) : Observable<any> {
-    return this.httpClient.post(this.url, tipoBalastro);
+    return this.httpClient.post(this.url+"saveTipoBalasto", tipoBalastro);
   }
 
   update(tipoBalastro : TipoBalasto) : Observable<any> {
-    return this.httpClient.put(this.url, tipoBalastro);
+    return this.httpClient.put(this.url+"updateTipoBalasto/", tipoBalastro);
   }
 
   /**
