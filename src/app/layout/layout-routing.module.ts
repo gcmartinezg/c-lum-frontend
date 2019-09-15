@@ -40,6 +40,10 @@ const routes: Routes = [
                 path: 'tipo-usuario',
                 loadChildren: './tipo-usuario-crud/tipo-usuario-crud.module#TipoUsuarioCrudModule'
             },
+            {
+                path: 'tipo-zona',
+                loadChildren: './tipo-zona-crud/tipo-zona-crud.module#TipoZonaCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }
