@@ -20,7 +20,6 @@ import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { CoordinadorEditComponent } from './coordinador-edit/coordinador-edit.component';
 
 @NgModule({
     declarations: [

@@ -76,6 +76,10 @@ const routes: Routes = [
             {
                 path: 'tipo-instalacion',
                 loadChildren: './tipo-instalacion-crud/tipo-instalacion-crud.module#TipoInstalacionCrudModule'
+            },
+            {
+                path: 'tipo-lampara',
+                loadChildren: './tipo-lampara-crud/tipo-lampara-crud.module#TipoLamparaCrudModule'
             }
             //TODO agregar las demas rutas
         ]
