@@ -1,0 +1,61 @@
+<h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
+  Crear {{injectedObject.text}}
+</h2>
+
+<ng-template #elseHeader>
+  <h2 mat-dialog-title>
+    Editar {{tipoEspacioIluminado.tipoEspacioIluminadoId}} - {{tipoEspacioIluminado.nombreTipoEspacioIluminado}}
+  </h2>
+</ng-template>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
+      [(ngModel)]="tipoEspacioIluminado.tipoEspacioIluminadoId" #tipoEspacioIluminadoId 
+      id="tipoEspacioIluminadoId" name="tipoEspacioIluminadoId" 
+      placeholder="ID Tipo Espacio Iluminado" disabled
+    >
+
+    <ng-template #elseInput>
+      <input matInput [(ngModel)]="tipoEspacioIluminado.tipoEspacioIluminadoId" 
+      #tipoEspacioIluminadoId id="tipoEspacioIluminadoId" name="tipoEspacioIluminadoId" 
+      placeholder="ID Tipo Espacio Iluminado"
+      >
+    </ng-template>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tipoEspacioIluminado.nombreTipoEspacioIluminado" 
+      #nombreTipoEspacioIluminado id="nombreTipoEspacioIluminado" name="nombreTipoEspacioIluminado" 
+      placeholder="Nombre Tipo Espacio Iluminado"
+    >
+  </mat-form-field>
+
+  <div *ngIf="injectedObject.saveBool">
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="tipoEspacioIluminado.idEstado_Estado" 
+          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
+        >
+  
+          <mat-option *ngFor="let estado of listaEstado" 
+            [value]="estado.idEstado"
+          >
+            {{estado.idEstado}} - {{estado.estado}}
+          </mat-option>
+  
+        </mat-select>
+      </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="crear()"
+    *ngIf="injectedObject.saveBool; else elseButton">Guardar</button>
+  <ng-template #elseButton>
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
+  </ng-template>
+  <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>

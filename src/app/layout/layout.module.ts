@@ -29,7 +29,6 @@ import { CoordinadorEditComponent } from './coordinador-edit/coordinador-edit.co
         TopnavComponent, 
         SidebarComponent,
         ConfirmationDialogComponent,
-    
     ],
     imports: [
         CommonModule,

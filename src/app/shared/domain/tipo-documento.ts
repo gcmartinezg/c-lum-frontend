@@ -2,6 +2,6 @@ export class TipoDocumento {
     constructor(
         public tipoDocumentoId : number,
         public nombreTipoDocumento : string,
-        public idEstado: number
+        public idEstado_Estado: number = 1
     ){}
 }

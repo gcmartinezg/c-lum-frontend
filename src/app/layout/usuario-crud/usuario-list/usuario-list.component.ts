@@ -1,47 +1,48 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
-import { TipoDocumento } from 'src/app/shared/domain/tipo-documento';
-import { TipoDocumentoService } from 'src/app/shared/services/tipo-documento.service';
-import { TipoDocumentoUpdateSaveDialogComponent } from '../tipo-documento-update-save-dialog/tipo-documento-update-save-dialog.component';
+import { Usuario } from 'src/app/shared/domain/usuario';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
+import { UsuarioUpdateSaveDialogComponent } from '../usuario-update-save-dialog/usuario-update-save-dialog.component';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-  selector: 'app-tipo-documento-list',
-  templateUrl: './tipo-documento-list.component.html',
-  styleUrls: ['./tipo-documento-list.component.scss']
+  selector: 'app-usuario-list',
+  templateUrl: './usuario-list.component.html',
+  styleUrls: ['./usuario-list.component.scss']
 })
-export class TipoDocumentoListComponent implements OnInit {
+export class UsuarioListComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'tipoDocumentoId',
-    'nombreTipoDocumento',
+    'usuarioId',
+    'terceroId_Tercero',
+    'contrasenia',
+    'tipoUsuarioId_TipoUsuario',
     'idEstado_Estado',
     'opciones'
   ];
 
-  public dataSource:MatTableDataSource<TipoDocumento>;
+  public dataSource:MatTableDataSource<Usuario>;
   @ViewChild(MatPaginator) paginator: MatPaginator; 
   @ViewChild(MatSort) sort:MatSort;
 
   constructor(
-    public tipoDocumentoService: TipoDocumentoService,
+    public servicioUsuario: UsuarioService,
     public matDialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.getTipoDocumentos();
+    this.getUsuarios();
   }
 
-  getTipoDocumentos(){
-    this.tipoDocumentoService.findAll().subscribe(res=>{
+  getUsuarios(){
+    this.servicioUsuario.findAll().subscribe(res=>{
       console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }, error =>{
-      console.log(error);
     });
+    
   }
 
   abrirSnackBar(message: string, action: string) {
@@ -64,34 +65,34 @@ export class TipoDocumentoListComponent implements OnInit {
   }
 
   crear(){
-    let datos = {saveBool : true, text : 'tipo documento'};
+    let datos = {saveBool : true, text : 'usuario'};
 
     let matDialogRef = this.matDialog.open(
-      TipoDocumentoUpdateSaveDialogComponent, 
+      UsuarioUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(datos)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTipoDocumentos();
+        this.getUsuarios();
       }
     });
 
   }
 
-  actualizar(tipoDocumentoId: string){
-    let data = {saveBool : false, text : ""+tipoDocumentoId};
+  actualizar(usuarioId: string){
+    let data = {saveBool : false, text : ""+usuarioId};
 
     let matDialogRef = this.matDialog.open(
-      TipoDocumentoUpdateSaveDialogComponent, 
+      UsuarioUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(data)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTipoDocumentos();
+        this.getUsuarios();
       }
     });
 
@@ -99,29 +100,29 @@ export class TipoDocumentoListComponent implements OnInit {
 
   /**
    * 
-   * @param tipoTransformadorId 
+   * @param usuarioId 
    * @deprecated usar desactivar(id) en su lugar
    */
 
-  eliminar(tipoTransformadorId: string){
-    this.tipoDocumentoService.delete(""+tipoTransformadorId).subscribe(res=>{
+  eliminar(usuarioId: string){
+    this.servicioUsuario.delete(""+usuarioId).subscribe(res=>{
       this.abrirSnackBar(res.mensaje, 'Exito');
-      this.getTipoDocumentos();
+      this.getUsuarios();
     },error=>{
       this.abrirSnackBar(error.error.mensaje, 'Error');
     });
     
   }
 
-  esInactivo(tipoDocumento: TipoDocumento) : boolean{
-    return tipoDocumento.idEstado_Estado == 2;
+  esInactivo(usuario: Usuario) : boolean{
+    return usuario.idEstado_Estado == 2;
   }
 
-  desactivar(tipoDocumento : TipoDocumento){
+  desactivar(usuario : Usuario){
     let data = {
-      title : "Desactivar tipo de transformador", 
-      body : "¿Esta usted seguro de querer desactivar el tipo " +
-      "de Documento con id " + tipoDocumento.tipoDocumentoId + "?"
+      title : "Desactivar usuario", 
+      body : "¿Esta usted seguro de querer desactivar el usuario " +
+      "con id " + usuario.usuarioId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -131,10 +132,10 @@ export class TipoDocumentoListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.tipoDocumentoService.deactivate(tipoDocumento).subscribe(
+        this.servicioUsuario.deactivate(usuario).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTipoDocumentos();
+            this.getUsuarios();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');
@@ -145,11 +146,11 @@ export class TipoDocumentoListComponent implements OnInit {
 
   }
 
-  activar(tipoDocumento : TipoDocumento){
+  activar(usuario : Usuario){
     let data = {
-      title : "Activar tipo de transformador", 
-      body : "¿Esta usted seguro de querer activar el tipo " +
-      "de Documento con id " + tipoDocumento.tipoDocumentoId + "?"
+      title : "Activar usuario", 
+      body : "¿Esta usted seguro de querer activar el usuario " +
+      "con id " + usuario.usuarioId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -159,10 +160,10 @@ export class TipoDocumentoListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.tipoDocumentoService.activate(tipoDocumento).subscribe(
+        this.servicioUsuario.activate(usuario).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTipoDocumentos();
+            this.getUsuarios();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');
@@ -172,4 +173,5 @@ export class TipoDocumentoListComponent implements OnInit {
       });
 
   }
+
 }

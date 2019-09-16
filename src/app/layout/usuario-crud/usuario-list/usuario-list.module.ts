@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TipoDocumentoListComponent } from './tipo-documento-list.component';
-import { TipoDocumentoListRoutingModule } from './tipo-documento-list-routing.module';
+
+import { UsuarioListRoutingModule } from './usuario-list-routing.module';
+import { UsuarioListComponent } from './usuario-list.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatIconModule, MatButtonModule, MatMenuModule, MatPaginatorModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
 
 @NgModule({
-  declarations: [TipoDocumentoListComponent],
+  declarations: [UsuarioListComponent],
   imports: [
     CommonModule,
-    TipoDocumentoListRoutingModule,
+    UsuarioListRoutingModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -23,4 +24,4 @@ import { MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatI
     MatDialogModule,
   ]
 })
-export class TipoDocumentoListModule { }
+export class UsuarioListModule { }

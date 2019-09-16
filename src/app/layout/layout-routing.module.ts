@@ -65,6 +65,14 @@ const routes: Routes = [
                 path: 'activos-tecnicoss',
                 loadChildren: './activos-tecnicos/activos-tecnicos.module#ActivosTecnicosModule'
             },
+            {
+                path: 'usuario',
+                loadChildren: './usuario-crud/usuario-crud.module#UsuarioCrudModule'
+            },
+            {
+                path:'tipo-espacio-iluminado',
+                loadChildren: './tesp-iluminado-crud/tesp-iluminado-crud.module#TespIluminadoCrudModule'
+            }
             //TODO agregar las demas rutas
         ]
     }

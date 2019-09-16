@@ -1,46 +1,44 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { TipoEspacioIluminado } from 'src/app/shared/domain/tipo-espacio-iluminado';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
-import { TipoDocumento } from 'src/app/shared/domain/tipo-documento';
-import { TipoDocumentoService } from 'src/app/shared/services/tipo-documento.service';
-import { TipoDocumentoUpdateSaveDialogComponent } from '../tipo-documento-update-save-dialog/tipo-documento-update-save-dialog.component';
+import { TipoEspacioIluminadoService } from 'src/app/shared/services/tipo-espacio-iluminado.service';
+import { TespIluminadoUpdateSaveDialogComponent } from '../tesp-iluminado-update-save-dialog/tesp-iluminado-update-save-dialog.component';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
-  selector: 'app-tipo-documento-list',
-  templateUrl: './tipo-documento-list.component.html',
-  styleUrls: ['./tipo-documento-list.component.scss']
+  selector: 'app-tesp-iluminado-list',
+  templateUrl: './tesp-iluminado-list.component.html',
+  styleUrls: ['./tesp-iluminado-list.component.scss']
 })
-export class TipoDocumentoListComponent implements OnInit {
+export class TespIluminadoListComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'tipoDocumentoId',
-    'nombreTipoDocumento',
+    'tipoEspacioIluminadoId',
+    'nombreTipoEspacioIluminado',
     'idEstado_Estado',
     'opciones'
   ];
 
-  public dataSource:MatTableDataSource<TipoDocumento>;
+  public dataSource:MatTableDataSource<TipoEspacioIluminado>;
   @ViewChild(MatPaginator) paginator: MatPaginator; 
   @ViewChild(MatSort) sort:MatSort;
 
   constructor(
-    public tipoDocumentoService: TipoDocumentoService,
+    public tipoEspacioIluminadoService: TipoEspacioIluminadoService,
     public matDialog: MatDialog,
     public snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    this.getTipoDocumentos();
+    this.getTipoEspacioIluminados();
   }
 
-  getTipoDocumentos(){
-    this.tipoDocumentoService.findAll().subscribe(res=>{
+  getTipoEspacioIluminados(){
+    this.tipoEspacioIluminadoService.findAll().subscribe(res=>{
       console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }, error =>{
-      console.log(error);
     });
   }
 
@@ -64,34 +62,34 @@ export class TipoDocumentoListComponent implements OnInit {
   }
 
   crear(){
-    let datos = {saveBool : true, text : 'tipo documento'};
+    let datos = {saveBool : true, text : 'tipo espacio iluminado'};
 
     let matDialogRef = this.matDialog.open(
-      TipoDocumentoUpdateSaveDialogComponent, 
+      TespIluminadoUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(datos)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTipoDocumentos();
+        this.getTipoEspacioIluminados();
       }
     });
 
   }
 
-  actualizar(tipoDocumentoId: string){
-    let data = {saveBool : false, text : ""+tipoDocumentoId};
+  actualizar(tipoTransformadorId: string){
+    let data = {saveBool : false, text : ""+tipoTransformadorId};
 
     let matDialogRef = this.matDialog.open(
-      TipoDocumentoUpdateSaveDialogComponent, 
+      TespIluminadoUpdateSaveDialogComponent, 
       this.retornarMatDialogConfig(data)
     );
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result != null){
         this.abrirSnackBar(result, 'OK');
-        this.getTipoDocumentos();
+        this.getTipoEspacioIluminados();
       }
     });
 
@@ -104,24 +102,24 @@ export class TipoDocumentoListComponent implements OnInit {
    */
 
   eliminar(tipoTransformadorId: string){
-    this.tipoDocumentoService.delete(""+tipoTransformadorId).subscribe(res=>{
+    this.tipoEspacioIluminadoService.delete(""+tipoTransformadorId).subscribe(res=>{
       this.abrirSnackBar(res.mensaje, 'Exito');
-      this.getTipoDocumentos();
+      this.getTipoEspacioIluminados();
     },error=>{
       this.abrirSnackBar(error.error.mensaje, 'Error');
     });
     
   }
 
-  esInactivo(tipoDocumento: TipoDocumento) : boolean{
-    return tipoDocumento.idEstado_Estado == 2;
+  esInactivo(tipoEspacioIluminado: TipoEspacioIluminado) : boolean{
+    return tipoEspacioIluminado.idEstado_Estado == 2;
   }
 
-  desactivar(tipoDocumento : TipoDocumento){
+  desactivar(tipoEspacioIluminado : TipoEspacioIluminado){
     let data = {
       title : "Desactivar tipo de transformador", 
       body : "¿Esta usted seguro de querer desactivar el tipo " +
-      "de Documento con id " + tipoDocumento.tipoDocumentoId + "?"
+      "de transformador con id " + tipoEspacioIluminado.tipoEspacioIluminadoId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -131,10 +129,10 @@ export class TipoDocumentoListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.tipoDocumentoService.deactivate(tipoDocumento).subscribe(
+        this.tipoEspacioIluminadoService.deactivate(tipoEspacioIluminado).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTipoDocumentos();
+            this.getTipoEspacioIluminados();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');
@@ -145,11 +143,11 @@ export class TipoDocumentoListComponent implements OnInit {
 
   }
 
-  activar(tipoDocumento : TipoDocumento){
+  activar(tipoEspacioIluminado : TipoEspacioIluminado){
     let data = {
       title : "Activar tipo de transformador", 
       body : "¿Esta usted seguro de querer activar el tipo " +
-      "de Documento con id " + tipoDocumento.tipoDocumentoId + "?"
+      "de transformador con id " + tipoEspacioIluminado.tipoEspacioIluminadoId + "?"
     };
     
     let matDialogRef = this.matDialog.open(
@@ -159,10 +157,10 @@ export class TipoDocumentoListComponent implements OnInit {
 
     matDialogRef.afterClosed().subscribe(result=>{
       if(result == true){
-        this.tipoDocumentoService.activate(tipoDocumento).subscribe(
+        this.tipoEspacioIluminadoService.activate(tipoEspacioIluminado).subscribe(
           data=>{
             this.abrirSnackBar(data.mensaje, 'OK');
-            this.getTipoDocumentos();
+            this.getTipoEspacioIluminados();
           },
           error=>{
             this.abrirSnackBar(error.error.mensaje, 'OK');
@@ -172,4 +170,5 @@ export class TipoDocumentoListComponent implements OnInit {
       });
 
   }
+
 }

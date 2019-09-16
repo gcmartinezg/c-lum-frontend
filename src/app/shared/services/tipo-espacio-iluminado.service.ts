@@ -9,24 +9,24 @@ import { TipoEspacioIluminado } from '../domain/tipo-espacio-iluminado';
 export class TipoEspacioIluminadoService {
 
   //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoEspacioIluminado/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url+"getDataTipoEspacioIluminado");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url + "getTipoEspacioIluminado/" + id);
   }
 
   save(tipoEspacioIluminado : TipoEspacioIluminado) : Observable<any> {
-    return this.httpClient.post(this.url, tipoEspacioIluminado);
+    return this.httpClient.post(this.url+"saveTipoEspacioIluminado", tipoEspacioIluminado);
   }
 
   update(tipoEspacioIluminado : TipoEspacioIluminado) : Observable<any> {
-    return this.httpClient.put(this.url, tipoEspacioIluminado);
+    return this.httpClient.put(this.url+"updateTipoEspacioIluminado/", tipoEspacioIluminado);
   }
 
   /**
@@ -35,7 +35,7 @@ export class TipoEspacioIluminadoService {
    * Use deactivate(tipoEspacioIluminado) instead.
    */
   delete(id : String) : Observable<any> {
-    return this.httpClient.delete(this.url + id);
+    return this.httpClient.delete(this.url+"deleteTipoEspacioIluminado/" + id);
   }
 
   deactivate(tipoEspacioIluminado : TipoEspacioIluminado) : Observable<any> {

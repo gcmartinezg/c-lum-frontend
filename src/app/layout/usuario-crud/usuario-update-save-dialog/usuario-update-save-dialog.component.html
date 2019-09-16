@@ -1,0 +1,124 @@
+<h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
+  Crear {{injectedObject.text}}
+</h2>
+
+<ng-template #elseHeader>
+  <h2 mat-dialog-title>
+    Editar {{usuario.usuarioId}} - {{tercero.nombreTercero}}
+  </h2>
+</ng-template>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
+      [(ngModel)]="usuario.usuarioId" #usuarioId 
+      id="usuarioId" name="usuarioId" 
+      placeholder="ID Usuario" disabled
+    >
+
+    <ng-template #elseInput>
+      <input matInput [(ngModel)]="usuario.usuarioId" 
+      #usuarioId id="usuarioId" name="usuarioId" 
+      placeholder="ID Usuario"
+      >
+    </ng-template>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="usuario.contrasenia" 
+      #contrasenia id="contrasenia" name="contrasenia" 
+      placeholder="Contraseña"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tipo Usuario</mat-label>
+    <mat-select [(ngModel)]="usuario.tipoUsuarioId_TipoUsuario" 
+      #tipoUsuarioId_TipoUsuario id="tipoUsuarioId_TipoUsuario" 
+      name="tipoUsuarioId_TipoUsuario"
+    >
+
+      <mat-option *ngFor="let tipoUsuario of listaTipoUsuario" 
+        [value]="tipoUsuario.tipoUsuarioId"
+      >
+        {{tipoUsuario.tipoUsuarioId}} - {{tipoUsuario.nombreTipoUsuario}}
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+
+  <!--table-->
+  <!--<div>-->
+    <h3>
+      Seleccione un Tercero...
+    </h3>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table matSort [dataSource]="dataSource" class="table">
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="terceroId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+        <td mat-cell *matCellDef="let tercero"> {{tercero.terceroId}} </td>
+      </ng-container>
+
+      <!-- Document Column -->
+      <ng-container matColumnDef="tipoDocumentoId_TipoDocumento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero de documento. </th>
+        <td mat-cell *matCellDef="let tercero"> {{tercero.tipoDocumentoId_TipoDocumento}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombreTercero">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Tercero </th>
+        <td mat-cell *matCellDef="let tercero"> {{tercero.nombreTercero}} </td>
+      </ng-container>
+
+      <!-- Radio Column -->
+      <ng-container matColumnDef="seleccion">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let tercero">
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="usuario.terceroId_Tercero">
+            <mat-radio-button [value]="tercero.terceroId"></mat-radio-button>
+          </mat-radio-group>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <!--</div>-->
+
+  <div *ngIf="injectedObject.saveBool">
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="tipoZona.idEstado_Estado" 
+          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
+        >
+  
+          <mat-option *ngFor="let estado of listaEstado" 
+            [value]="estado.idEstado"
+          >
+            {{estado.idEstado}} - {{estado.estado}}
+          </mat-option>
+  
+        </mat-select>
+      </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="crear()"
+    *ngIf="injectedObject.saveBool; else elseButton">Guardar</button>
+  <ng-template #elseButton>
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
+  </ng-template>
+  <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>
