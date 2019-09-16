@@ -9,24 +9,24 @@ import { TipoInstalacion } from '../domain/tipo-instalacion';
 export class TipoInstalacionService {
 
   //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoInstalacion/";
 
   constructor(public httpClient:HttpClient) { }
 
   findAll():Observable<any>{
-    return this.httpClient.get(this.url);
+    return this.httpClient.get(this.url+"getDataTipoInstalacion");
   }
 
   findById(id : String) : Observable<any> {
-    return this.httpClient.get(this.url + id);
+    return this.httpClient.get(this.url+"getTipoInstalacion/" + id);
   }
 
   save(tipoInstalacion : TipoInstalacion) : Observable<any> {
-    return this.httpClient.post(this.url, tipoInstalacion);
+    return this.httpClient.post(this.url+"saveTipoInstalacion", tipoInstalacion);
   }
 
   update(tipoInstalacion : TipoInstalacion) : Observable<any> {
-    return this.httpClient.put(this.url, tipoInstalacion);
+    return this.httpClient.put(this.url+"updateTipoInstalacion/", tipoInstalacion);
   }
 
   /**
@@ -35,7 +35,7 @@ export class TipoInstalacionService {
    * Use deactivate(tipoInstalacion) instead.
    */
   delete(id : String) : Observable<any> {
-    return this.httpClient.delete(this.url + id);
+    return this.httpClient.delete(this.url+"deleteTipoInstalacion/" + id);
   }
 
   deactivate(tipoInstalacion : TipoInstalacion) : Observable<any> {
