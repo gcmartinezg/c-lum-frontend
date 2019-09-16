@@ -52,6 +52,10 @@ const routes: Routes = [
                 path: 'tipo-documento',
                 loadChildren: './tipo-documento-crud/tipo-documento-crud.module#TipoDocumentoCrudModule'
             },
+            {
+                path:'tipo-espacio-iluminado',
+                loadChildren: './tesp-iluminado-crud/tesp-iluminado-crud.module#TespIluminadoCrudModule'
+            }
             //TODO agregar las demas rutas
         ]
     }

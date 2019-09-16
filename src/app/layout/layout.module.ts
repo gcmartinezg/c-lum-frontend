@@ -26,7 +26,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
         NavComponent, 
         TopnavComponent, 
         SidebarComponent,
-        ConfirmationDialogComponent
+        ConfirmationDialogComponent,
     ],
     imports: [
         CommonModule,

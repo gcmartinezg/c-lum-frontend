@@ -2,6 +2,6 @@ export class TipoEspacioIluminado {
     constructor(
         public tipoEspacioIluminadoId : number,
         public nombreTipoEspacioIluminado : string,
-        public idEstado: number
+        public idEstado_Estado: number = 1
     ){}
 }
