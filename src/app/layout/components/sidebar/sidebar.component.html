@@ -29,6 +29,8 @@
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/usuario']">
       <mat-icon class="sidenav-icon">person_pin</mat-icon> {{ 'Usuario' | translate }}
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-espacio-iluminado']">
+      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Espacio Iluminado' | translate }}
     </a>
   </mat-nav-list>
 </div>
