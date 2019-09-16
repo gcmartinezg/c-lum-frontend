@@ -1,0 +1,44 @@
+<h2 mat-dialog-title *ngIf="injectedObject.saveBool; else elseHeader">
+  Crear {{injectedObject.text}}
+</h2>
+
+<ng-template #elseHeader>
+  <h2 mat-dialog-title>
+    Editar {{estado.idEstado}} - {{estado.estado}}
+  </h2>
+</ng-template>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
+      [(ngModel)]="estado.idEstado" #idEstado 
+      id="idEstado" name="idEstado" 
+      placeholder="ID Estado" disabled
+    >
+
+    <ng-template #elseInput>
+      <input matInput [(ngModel)]="estado.idEstado" 
+      #idEstado id="idEstado" name="idEstado" 
+      placeholder="ID Estado"
+      >
+    </ng-template>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="estado.estado" 
+      #nombre id="nombre" name="nombre" 
+      placeholder="Nombre Estado"
+    >
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="crear()"
+    *ngIf="injectedObject.saveBool; else elseButton">Guardar</button>
+  <ng-template #elseButton>
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
+  </ng-template>
+  <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+</mat-dialog-actions>

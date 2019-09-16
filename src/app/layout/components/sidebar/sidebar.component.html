@@ -3,6 +3,9 @@
     <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
       <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
     </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/estado']">
+      <mat-icon class="sidenav-icon">checkbox</mat-icon> {{ 'Estado' | translate }}
+    </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto']">
       <mat-icon class="sidenav-icon">calendar_view_day</mat-icon> {{ 'Tipo Balasto' | translate }}
     </a>

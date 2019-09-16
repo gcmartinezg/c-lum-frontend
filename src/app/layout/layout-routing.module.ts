@@ -44,6 +44,10 @@ const routes: Routes = [
                 path: 'tipo-zona',
                 loadChildren: './tipo-zona-crud/tipo-zona-crud.module#TipoZonaCrudModule'
             },
+            {
+                path: 'estado',
+                loadChildren: './estado-crud/estado-crud.module#EstadoCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }

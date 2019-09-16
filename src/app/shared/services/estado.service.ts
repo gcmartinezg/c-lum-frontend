@@ -11,20 +11,26 @@ export class EstadoService {
   public listaEstado : Estado[];
   public url:string = "http://localhost:8080/clum-backend/rest/controllers/estado/";
 
-  constructor(
-    public httpClient:HttpClient
-  ) {
-    //this.listaEstado = [
-    //  {id : 'S', nombre : 'Activo'},
-    //  {id : 'N', nombre : 'Inactivo'}
-    //];
-   }
-
-   /*findAll() : Estado[] {
-     return this.listaEstado;
-   }*/
+  constructor(public httpClient:HttpClient) {}
 
    findAll():Observable<any>{
-    return this.httpClient.get(this.url+"getDataEstado");
+    return this.httpClient.get(this.url + "getDataEstado/");
   }
+
+  findById(id : String) : Observable<any> {
+    return this.httpClient.get(this.url + "getEstado/" + id);
+  }
+
+  save(estado : Estado) : Observable<any> {
+    return this.httpClient.post(this.url + "saveEstado/", estado);
+  }
+
+  update(estado : Estado) : Observable<any> {
+    return this.httpClient.put(this.url + "updateEstado/", estado);
+  }
+
+  delete(id : String) : Observable<any> {
+    return this.httpClient.delete(this.url + "deleteEstado/"+ id);
+  }
+
 }
