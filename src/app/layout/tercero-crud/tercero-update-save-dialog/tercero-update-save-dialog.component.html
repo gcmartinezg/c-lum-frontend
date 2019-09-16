@@ -13,15 +13,22 @@
     <input matInput *ngIf="!injectedObject.saveBool; else elseInput" 
       [(ngModel)]="tercero.terceroId" #terceroId 
       id="terceroId" name="terceroId" 
-      placeholder="Numero de Documento" disabled
+      placeholder="ID Tercero" disabled
     >
 
     <ng-template #elseInput>
       <input matInput [(ngModel)]="tercero.terceroId" 
         #terceroId id="terceroId" name="terceroId" 
-        placeholder="Numero de Documento"
+        placeholder="ID Tercero"
       >
     </ng-template>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.numeroDocumento" 
+      #numeroDocumento id="numeroDocumento" name="numeroDocumento" 
+      placeholder="Numero de Documento"
+    >
   </mat-form-field>
 
   <div *ngIf="injectedObject.saveBool">
