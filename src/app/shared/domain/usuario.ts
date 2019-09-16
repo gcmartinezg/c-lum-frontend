@@ -4,6 +4,6 @@ export class Usuario {
         public terceroId_Tercero: number,
         public contrasenia : string,
         public tipoUsuarioId_TipoUsuario: number,
-        public idEstado_Estado: number
+        public idEstado_Estado: number = 1
     ){}
 }

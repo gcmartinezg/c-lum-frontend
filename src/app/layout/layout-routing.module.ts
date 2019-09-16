@@ -52,6 +52,10 @@ const routes: Routes = [
                 path: 'tipo-documento',
                 loadChildren: './tipo-documento-crud/tipo-documento-crud.module#TipoDocumentoCrudModule'
             },
+            {
+                path: 'usuario',
+                loadChildren: './usuario-crud/usuario-crud.module#UsuarioCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }
