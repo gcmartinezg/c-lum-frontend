@@ -11,25 +11,27 @@ import {
 } from '@angular/material';
 import { TipoDocumentoCrudRoutingModule } from './tipo-documento-crud-routing.module';
 import { TipoDocumentoCrudComponent } from './tipo-documento-crud.component';
+import { TipoDocumentoUpdateSaveDialogComponent } from './tipo-documento-update-save-dialog/tipo-documento-update-save-dialog.component';
 
 @NgModule({
   declarations: [
-    TipoDocumentoCrudComponent//TODO FALTA ADICIOANR EL DIALOG AQUI!
+    TipoDocumentoCrudComponent,
+    TipoDocumentoUpdateSaveDialogComponent
   ],
   imports: [
     CommonModule,
     TipoDocumentoCrudRoutingModule,
-    FormsModule,
     MatDialogModule,
     MatSnackBarModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   entryComponents: [
-    //TODO FALTA ADICIOANR EL DIALOG AQUI!
+    TipoDocumentoUpdateSaveDialogComponent
   ]
 })
 export class TipoDocumentoCrudModule { }
