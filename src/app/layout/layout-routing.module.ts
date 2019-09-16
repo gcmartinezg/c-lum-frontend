@@ -18,7 +18,11 @@ const routes: Routes = [
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
             },
             {
-                path: 'terceros',
+                path: 'estado',
+                loadChildren: './estado-crud/estado-crud.module#EstadoCrudModule'
+            },
+            {
+                path: 'tercero',
                 loadChildren: './tercero-crud/tercero-crud.module#TerceroCrudModule'
             },
             {
@@ -44,10 +48,6 @@ const routes: Routes = [
             {
                 path: 'tipo-zona',
                 loadChildren: './tipo-zona-crud/tipo-zona-crud.module#TipoZonaCrudModule'
-            },
-            {
-                path: 'estado',
-                loadChildren: './estado-crud/estado-crud.module#EstadoCrudModule'
             },
             {
                 path: 'tipo-documento',
