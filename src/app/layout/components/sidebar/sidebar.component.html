@@ -24,5 +24,8 @@
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-zona']">
       <mat-icon class="sidenav-icon">where_to_vote</mat-icon> {{ 'Tipo Zona' | translate }}
     </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-documento']">
+      <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Documento' | translate }}
+    </a>
   </mat-nav-list>
 </div>

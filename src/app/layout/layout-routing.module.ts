@@ -48,6 +48,10 @@ const routes: Routes = [
                 path: 'estado',
                 loadChildren: './estado-crud/estado-crud.module#EstadoCrudModule'
             },
+            {
+                path: 'tipo-documento',
+                loadChildren: './tipo-documento-crud/tipo-documento-crud.module#TipoDocumentoCrudModule'
+            },
             //TODO agregar las demas rutas
         ]
     }
