@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatSnackBar, MatD
 import { TipoBalasto } from 'src/app/shared/domain/tipo-balasto';
 import { TipoBalastroService } from 'src/app/shared/services/tipo-balastro.service';
 import { TipoBalastoUpdateSaveDialogComponent } from '../tipo-balasto-update-save-dialog/tipo-balasto-update-save-dialog.component';
+import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-tipo-balasto-list',
@@ -93,6 +94,82 @@ export class TipoBalastoListComponent implements OnInit {
         this.getTipoBalastos();
       }
     })
+  }
+
+/**
+   * 
+   * @param tipoTransformadorId 
+   * @deprecated usar desactivar(id) en su lugar
+   */
+
+  eliminar(tipoBalastoId: string){
+    this.tipoBalastoService.delete(""+tipoBalastoId).subscribe(res=>{
+      this.abrirSnackBar(res.mensaje, 'Exito');
+      this.getTipoBalastos();
+    },error=>{
+      this.abrirSnackBar(error.error.mensaje, 'Error');
+    });
+    
+  }
+
+  esInactivo(tipoBalasto: TipoBalasto) : boolean{
+    return tipoBalasto.idEstado_Estado == 2;
+  }
+
+  desactivar(tipoBalasto: TipoBalasto){
+    let data = {
+      title : "Desactivar tipo de transformador", 
+      body : "¿Esta usted seguro de querer desactivar el tipo " +
+      "de transformador con id " + tipoBalasto.tipoBalastoId + "?"
+    };
+    
+    let matDialogRef = this.MatDialog.open(
+      ConfirmationDialogComponent,
+      this.retornarMatDialogConfig(data)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result == true){
+        this.tipoBalastoService.deactivate(tipoBalasto).subscribe(
+          data=>{
+            this.abrirSnackBar(data.mensaje, 'OK');
+            this.getTipoBalastos();
+          },
+          error=>{
+            this.abrirSnackBar(error.error.mensaje, 'OK');
+          }
+        );}
+
+      });
+
+  }
+
+  activar(tipoBalasto: TipoBalasto){
+    let data = {
+      title : "Activar tipo de transformador", 
+      body : "¿Esta usted seguro de querer activar el tipo " +
+      "de transformador con id " + tipoBalasto.tipoBalastoId + "?"
+    };
+    
+    let matDialogRef = this.MatDialog.open(
+      ConfirmationDialogComponent,
+      this.retornarMatDialogConfig(data)
+    );
+
+    matDialogRef.afterClosed().subscribe(result=>{
+      if(result == true){
+        this.tipoBalastoService.activate(tipoBalasto).subscribe(
+          data=>{
+            this.abrirSnackBar(data.mensaje, 'OK');
+            this.getTipoBalastos();
+          },
+          error=>{
+            this.abrirSnackBar(error.error.mensaje, 'OK');
+          }
+        );}
+
+      });
+
   }
 
 }
