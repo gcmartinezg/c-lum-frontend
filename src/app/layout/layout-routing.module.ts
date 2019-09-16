@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './layout.component';
+import { CoordinadorEditComponent } from './coordinador-edit/coordinador-edit.component';
 
 const routes: Routes = [
     {
@@ -51,6 +52,18 @@ const routes: Routes = [
             {
                 path: 'tipo-documento',
                 loadChildren: './tipo-documento-crud/tipo-documento-crud.module#TipoDocumentoCrudModule'
+            },
+            {
+                path: 'editar-coordinador',
+                loadChildren: './coordinador-edit/coordinador-edit.module#CoordinadorEditModule'
+            },
+            {
+                path: 'listado-tecnicos',
+                loadChildren: './listado-tecnicos/listado-tecnicos.module#ListadoTecnicosModule'
+            },
+            {
+                path: 'activos-tecnicoss',
+                loadChildren: './activos-tecnicos/activos-tecnicos.module#ActivosTecnicosModule'
             },
             //TODO agregar las demas rutas
         ]

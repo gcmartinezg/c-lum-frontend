@@ -1,6 +1,6 @@
 <div id="sidebar">
   <mat-nav-list>
-    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showCoordinador"  [routerLink]="['/dashboard']">
       <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/estado']">
@@ -9,13 +9,13 @@
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-balasto']">
       <mat-icon class="sidenav-icon">calendar_view_day</mat-icon> {{ 'Tipo Balasto' | translate }}
     </a>
-    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tipo-material']">
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin"  [routerLink]="['/tipo-material']">
       <mat-icon class="sidenav-icon">dynamic_feed</mat-icon> {{ 'Tipo Material' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-soporte']">
       <mat-icon class="sidenav-icon">developer_mode</mat-icon> {{ 'Tipo Soporte' | translate }}
     </a>
-    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tipo-transformador']">
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin"  [routerLink]="['/tipo-transformador']">
       <mat-icon class="sidenav-icon">border_outer</mat-icon> {{ 'Tipo Transformador' | translate }}
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-usuario']">
@@ -26,6 +26,16 @@
     </a>
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-documento']">
       <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Tipo Documento' | translate }}
+    </a>
+
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showCoordinador" [routerLink]="['/editar-coordinador']">
+      <mat-icon class="sidenav-icon">edit</mat-icon> {{ 'Editar Perfil' | translate }}
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showCoordinador" [routerLink]="['/listado-tecnicos']">
+      <mat-icon class="sidenav-icon">list</mat-icon> {{ 'Listado Tecnicos' | translate }}
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showCoordinador" [routerLink]="['/activos-tecnicoss']">
+      <mat-icon class="sidenav-icon">perm_identity</mat-icon> {{ 'Ver Tecnicos Activos' | translate }}
     </a>
   </mat-nav-list>
 </div>

@@ -9,7 +9,8 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -19,6 +20,7 @@ import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { CoordinadorEditComponent } from './coordinador-edit/coordinador-edit.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
         NavComponent, 
         TopnavComponent, 
         SidebarComponent,
-        ConfirmationDialogComponent
+        ConfirmationDialogComponent,
+    
     ],
     imports: [
         CommonModule,
@@ -41,7 +44,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
         MatMenuModule,
         MatListModule,
         TranslateModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCardModule
     ],
     entryComponents: [ConfirmationDialogComponent]
 })

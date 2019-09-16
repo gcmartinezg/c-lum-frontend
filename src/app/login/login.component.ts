@@ -45,4 +45,6 @@ export class LoginComponent implements OnInit {
           this.openSnackBar(error.error.mensaje, 'Error');
         });
       }
+
+      //TODO inpedir entrada de tecnico a portal web
 }

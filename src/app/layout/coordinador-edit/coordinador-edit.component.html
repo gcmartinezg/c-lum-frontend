@@ -1,0 +1,62 @@
+
+<mat-card >
+<mat-card-header>
+  
+<h2 >
+  Editar Coordinador
+</h2>
+</mat-card-header>
+<mat-dialog-content>
+  <mat-form-field>
+    <input  matInput 
+      [(ngModel)]="tercero.terceroId" #terceroId 
+      id="terceroId" name="terceroId" 
+      placeholder="Numero de Documento" disabled
+    >
+
+    
+  </mat-form-field>
+
+  
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.nombreTercero" 
+      #nombreTercero id="nombreTercero" name="nombreTercero" 
+      placeholder="Nombre" disabled
+    >
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.direccion" 
+      #direccion id="direccion" name="direccion" 
+      placeholder="Direccion"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.telefono" 
+      #telefono id="telefono" name="telefono" 
+      placeholder="Telefono"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tercero.email" 
+      #email id="email" name="email" 
+      placeholder="Correo"
+    >
+  </mat-form-field>
+
+  
+</mat-dialog-content>
+
+<mat-card-actions>
+ 
+  
+    <button class="mat-raised-button mat-primary" (click)="actualizar()">
+      Actualizar
+    </button>
+  
+  <button class="mat-raised-button" routerLink="/dashboard">Cerrar</button>
+</mat-card-actions>
+</mat-card>
