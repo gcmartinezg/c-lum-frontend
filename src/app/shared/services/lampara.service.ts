@@ -9,10 +9,11 @@ import { Lampara } from '../domain/lampara';
 export class LamparaService {
 
   //FIXME corregir la url del REST
-  public url:string = "http://localhost:8080/bank-rest/rest/client/";
+  public url:string = "http://localhost:8080/clum-backend/rest/controllers/lampara/";
 
   constructor(public httpClient:HttpClient) { }
 
+  //TODO Falta el crud de lampara
   findAll():Observable<any>{
     return this.httpClient.get(this.url);
   }
@@ -44,6 +45,10 @@ export class LamparaService {
 
   activate(lampara : Lampara) : Observable<any> {
     return this.httpClient.put(this.url + 'activate', lampara);
+  }
+
+  findAllLamparasRegistradas(): Observable<any>{
+    return this.httpClient.get(this.url+"getLamparaLamparaRegistradas")
   }
   
 }

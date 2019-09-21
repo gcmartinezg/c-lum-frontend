@@ -51,5 +51,8 @@
     <a mat-list-item [routerLinkActive]="'active'" *ngIf="showAdmin" [routerLink]="['/tipo-lampara']">
       <mat-icon class="sidenav-icon">wb_incandescent</mat-icon> {{ 'Tipo Lampara' | translate }}
     </a>
+    <a mat-list-item [routerLinkActive]="'active'" *ngIf="showCoordinador" [routerLink]="['/mapa-lamparas']">
+      <mat-icon class="sidenav-icon">my_location</mat-icon> {{ 'Lamparas Registradas' | translate }}
+    </a>
   </mat-nav-list>
 </div>

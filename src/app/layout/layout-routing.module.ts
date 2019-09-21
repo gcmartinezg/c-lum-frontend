@@ -80,6 +80,10 @@ const routes: Routes = [
             {
                 path: 'tipo-lampara',
                 loadChildren: './tipo-lampara-crud/tipo-lampara-crud.module#TipoLamparaCrudModule'
+            },
+            {
+                path: 'mapa-lamparas',
+                loadChildren: './mapa-lamparas-registradas/mapa-lamparas-registradas.module#MapaLamparasRegistradasModule'
             }
             //TODO agregar las demas rutas
         ]

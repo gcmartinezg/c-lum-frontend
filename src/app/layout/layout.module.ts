@@ -20,6 +20,7 @@ import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MapaLamparasRegistradasComponent } from './mapa-lamparas-registradas/mapa-lamparas-registradas.component';
 
 @NgModule({
     declarations: [
