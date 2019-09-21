@@ -68,13 +68,14 @@ export class ListadoTecnicosComponent implements OnInit {
       this.servicioUsuario.generateQR(usuario.usuarioId, coordinadorId).subscribe(qr=>{
         let data = {
           title : "QR de Activacion", 
-          body : qr
+          body : qr.mensaje
         };
         let matDialogRef = this.matDialog.open(
           TecnicoQrDialogComponent,
           this.retornarMatDialogConfig(data)
         );
-      })
+      },
+      error=>{console.log(error);})
     });
 
   }
