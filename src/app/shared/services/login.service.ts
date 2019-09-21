@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  //FIXME corregir la url del REST
   public url:string = "http://localhost:8080/clum-backend/rest/controllers/usuario/login";
 
   constructor(public httpClient:HttpClient) { }

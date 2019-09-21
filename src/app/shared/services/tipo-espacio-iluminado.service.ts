@@ -8,7 +8,6 @@ import { TipoEspacioIluminado } from '../domain/tipo-espacio-iluminado';
 })
 export class TipoEspacioIluminadoService {
 
-  //FIXME corregir la url del REST
   public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoEspacioIluminado/";
 
   constructor(public httpClient:HttpClient) { }

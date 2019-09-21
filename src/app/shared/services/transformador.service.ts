@@ -8,7 +8,6 @@ import { Transformador } from '../domain/transformador';
 })
 export class TransformadorService {
 
-  //FIXME corregir la url del REST
   public url:string = "http://localhost:8080/bank-rest/rest/client/";
 
   constructor(public httpClient:HttpClient) { }

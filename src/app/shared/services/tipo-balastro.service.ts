@@ -8,7 +8,6 @@ import { TipoBalasto } from '../domain/tipo-balasto';
 })
 export class TipoBalastroService {
 
-  //FIXME corregir la url del REST
   public url:string = "http://localhost:8080/clum-backend/rest/controllers/tipoBalasto/";
 
   constructor(public httpClient:HttpClient) { }
