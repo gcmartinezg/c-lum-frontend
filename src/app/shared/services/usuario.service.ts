@@ -16,6 +16,24 @@ export class UsuarioService {
     return this.httpClient.get(this.url+"getDataUsuario");
   }
 
+  getListaTecnicos() : Observable<any> {
+    return this.httpClient.get(this.url + 'getListaTecnicos');
+  }
+
+  getTecnicosActivos() : Observable<any> {
+    return this.httpClient.get(this.url + 'getTecnicosActivos');
+  }
+
+  generateQR(trabajadorId : string, coordinadorId : string) : Observable<any> {
+    return this.httpClient.get(
+      this.url + 'generateQR/' + trabajadorId + '/' + coordinadorId
+    );
+  }
+
+  getTerceroFromUsuarioId(id : String) : Observable<any> {
+    return this.httpClient.get(this.url+"getTerceroFromUsuarioId/"+ id);
+  }
+
   findById(id : String) : Observable<any> {
     return this.httpClient.get(this.url+"getUsuario/"+ id);
   }

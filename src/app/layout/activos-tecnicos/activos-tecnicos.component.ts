@@ -33,13 +33,12 @@ export class ActivosTecnicosComponent implements OnInit {
     this.getTerceros();
   }
   getTerceros(){
-    this.servicioTercero.findAll().subscribe(res=>{
+    this.servicioUsuario.getTecnicosActivos().subscribe(res=>{
       console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-    
     
   }
 

@@ -20,6 +20,10 @@ export class TerceroService {
     return this.httpClient.get(this.url + "getTercero/" + id);
   }
 
+  getUsuarioFromTerceroId(id : String) : Observable<any> {
+    return this.httpClient.get(this.url + "getUsuarioFromTerceroId/" + id);
+  }
+
   save(tercero : Tercero) : Observable<any> {
     return this.httpClient.post(this.url + "saveTercero/", tercero);
   }
