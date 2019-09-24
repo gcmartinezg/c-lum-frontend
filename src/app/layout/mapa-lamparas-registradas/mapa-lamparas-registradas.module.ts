@@ -11,7 +11,7 @@ import { MapaLamparasRegistradasComponent } from './mapa-lamparas-registradas.co
     CommonModule,
     MapaLamparasRegistradasRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyANLa4qjQlE5ps-lIQqC5XUsgIKKkt5U5g'
+      apiKey: 'AIzaSyD1mEnbVxj8wOhRUPaOS3z1m3CS1SnRQ2Y'
     })
   ]
 })
