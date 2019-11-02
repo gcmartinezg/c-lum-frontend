@@ -19,7 +19,7 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="tipoEspacioIluminado.tipoEspacioIluminadoId" 
       #tipoEspacioIluminadoId id="tipoEspacioIluminadoId" name="tipoEspacioIluminadoId" 
-      placeholder="ID Tipo Espacio Iluminado"
+      placeholder="ID Tipo Espacio Iluminado" required
       >
     </ng-template>
   </mat-form-field>
@@ -27,7 +27,7 @@
   <mat-form-field>
     <input matInput [(ngModel)]="tipoEspacioIluminado.nombreTipoEspacioIluminado" 
       #nombreTipoEspacioIluminado id="nombreTipoEspacioIluminado" name="nombreTipoEspacioIluminado" 
-      placeholder="Nombre Tipo Espacio Iluminado"
+      placeholder="Nombre Tipo Espacio Iluminado" required
     >
   </mat-form-field>
 
@@ -35,7 +35,7 @@
       <mat-form-field>
         <mat-label>Estado</mat-label>
         <mat-select [(ngModel)]="tipoEspacioIluminado.idEstado_Estado" 
-          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
+          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado" 
         >
   
           <mat-option *ngFor="let estado of listaEstado" 

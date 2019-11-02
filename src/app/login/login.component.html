@@ -9,7 +9,7 @@
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
                         <input matInput [(ngModel)]="usuario.usuarioId" #usuarioId id="usuarioId" 
-                        name="usuarioId" placeholder="Usuario">
+                        name="usuarioId" placeholder="Usuario" type="text"  required>
                     </mat-form-field>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <div fxFlexFill>
                     <mat-form-field class="w-100">
                         <input matInput [(ngModel)]="usuario.contrasenia" #contrasenia id="contrasenia" 
-                        name="contrasenia" type="password" placeholder="Clave">
+                        name="contrasenia" type="password" placeholder="Clave" type="password"  required>
                     </mat-form-field>
                 </div>
             </div>

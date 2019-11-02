@@ -20,7 +20,7 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="tipoBalasto.tipoBalastoId" 
         #tipoBalastoId id="tipoBalastoId" name="tipoBalastoId" 
-        placeholder="Id Tipo Balasto"
+        placeholder="Id Tipo Balasto" required
       >
     </ng-template>
   </mat-form-field>
@@ -28,7 +28,7 @@
 
   <mat-form-field>
     <input matInput [(ngModel)]="tipoBalasto.nombreTipoBalasto" 
-      #nombreTipoBalasto id="nombreTipoBalasto" name="nombreTipoBalasto" placeholder="NombreTipoBalasto"
+      #nombreTipoBalasto id="nombreTipoBalasto" name="nombreTipoBalasto" placeholder="NombreTipoBalasto" required
     >
   </mat-form-field><br>
 
@@ -36,7 +36,7 @@
     <mat-form-field>
       <mat-label>Estado</mat-label>
       <mat-select [(ngModel)]="tipoBalasto.idEstado_Estado" 
-        #tipoBalasto id="tipoBalasto" name="tipoBalasto"
+        #tipoBalasto id="tipoBalasto" name="tipoBalasto" 
       >
 
         <mat-option *ngFor="let estado of listaEstado" 

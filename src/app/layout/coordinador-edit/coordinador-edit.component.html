@@ -29,21 +29,21 @@
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.direccion" 
       #direccion id="direccion" name="direccion" 
-      placeholder="Direccion"
+      placeholder="Direccion" type="text"  required
     >
   </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.telefono" 
       #telefono id="telefono" name="telefono" 
-      placeholder="Telefono"
+      placeholder="Telefono" type="number"  required
     >
   </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.email" 
       #email id="email" name="email" 
-      placeholder="Correo"
+      placeholder="Correo" type="email"  required
     >
   </mat-form-field>
 

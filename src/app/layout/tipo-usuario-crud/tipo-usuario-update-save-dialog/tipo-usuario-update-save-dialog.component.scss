@@ -1,0 +1,6 @@
+.input:valid, textarea:valid {
+    background:green;
+  }
+.input:invalid, textarea:invalid {
+    background:red;
+  }

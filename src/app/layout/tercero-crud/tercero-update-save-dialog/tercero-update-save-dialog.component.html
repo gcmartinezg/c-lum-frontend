@@ -19,7 +19,7 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="tercero.terceroId" 
         #terceroId id="terceroId" name="terceroId" 
-        placeholder="ID Tercero"
+        placeholder="ID Tercero" required
       >
     </ng-template>
   </mat-form-field>
@@ -27,7 +27,7 @@
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.numeroDocumento" 
       #numeroDocumento id="numeroDocumento" name="numeroDocumento" 
-      placeholder="Numero de Documento"
+      placeholder="Numero de Documento" type="number"  required
     >
   </mat-form-field>
 
@@ -36,7 +36,7 @@
       <mat-label>Tipo de Documento</mat-label>
       <mat-select [(ngModel)]="tercero.tipoDocumentoId_TipoDocumento" 
         #tipoDocumentoId_TipoDocumento id="tipoDocumentoId_TipoDocumento" 
-        name="tipoDocumentoId_TipoDocumento"
+        name="tipoDocumentoId_TipoDocumento" required
       >
 
         <mat-option *ngFor="let tDoc of listaTipoDocumento" 
@@ -52,28 +52,28 @@
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.nombreTercero" 
       #nombreTercero id="nombreTercero" name="nombreTercero" 
-      placeholder="Nombre"
+      placeholder="Nombre" type="text"  required
     >
   </mat-form-field><br>
 
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.direccion" 
       #direccion id="direccion" name="direccion" 
-      placeholder="Direccion"
+      placeholder="Direccion" type="text"  required="true"
     >
   </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.telefono" 
       #telefono id="telefono" name="telefono" 
-      placeholder="Telefono"
+      placeholder="Telefono" type="number" minlength="0"  required
     >
   </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]="tercero.email" 
       #email id="email" name="email" 
-      placeholder="Correo"
+      placeholder="Correo" type="email"  required
     >
   </mat-form-field>
 

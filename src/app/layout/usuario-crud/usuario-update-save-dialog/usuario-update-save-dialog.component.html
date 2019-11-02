@@ -19,7 +19,7 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="usuario.usuarioId" 
       #usuarioId id="usuarioId" name="usuarioId" 
-      placeholder="ID Usuario"
+      placeholder="ID Usuario" 
       >
     </ng-template>
   </mat-form-field>
@@ -27,7 +27,7 @@
   <mat-form-field>
     <input matInput [(ngModel)]="usuario.contrasenia" 
       #contrasenia id="contrasenia" name="contrasenia" 
-      placeholder="Contraseña"
+      placeholder="Contraseña" type="password"  required
     >
   </mat-form-field>
 
@@ -35,7 +35,7 @@
     <mat-label>Tipo Usuario</mat-label>
     <mat-select [(ngModel)]="usuario.tipoUsuarioId_TipoUsuario" 
       #tipoUsuarioId_TipoUsuario id="tipoUsuarioId_TipoUsuario" 
-      name="tipoUsuarioId_TipoUsuario"
+      name="tipoUsuarioId_TipoUsuario" 
     >
 
       <mat-option *ngFor="let tipoUsuario of listaTipoUsuario" 
