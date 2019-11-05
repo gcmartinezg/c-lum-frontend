@@ -55,7 +55,9 @@ export class TespIluminadoUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -70,6 +72,21 @@ export class TespIluminadoUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tipoEspacioIluminado.tipoEspacioIluminadoId==null || this.tipoEspacioIluminado.tipoEspacioIluminadoId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoEspacioIluminado.nombreTipoEspacioIluminado==null || this.tipoEspacioIluminado.nombreTipoEspacioIluminado==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoEspacioIluminado.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar tipo transformador", 
       body : "¿Esta usted seguro de querer actualizar el tipo " +
@@ -97,6 +114,21 @@ export class TespIluminadoUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.tipoEspacioIluminado.tipoEspacioIluminadoId==null || this.tipoEspacioIluminado.tipoEspacioIluminadoId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoEspacioIluminado.nombreTipoEspacioIluminado==null || this.tipoEspacioIluminado.nombreTipoEspacioIluminado==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoEspacioIluminado.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear tipo transformador", 
       body : "¿Esta usted seguro de querer crear el tipo " +

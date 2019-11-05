@@ -81,7 +81,7 @@
     <mat-form-field>
       <mat-label>Estado</mat-label>
       <mat-select [(ngModel)]="tercero.idEstado_Estado" 
-        #estado id="estado" name="estado"
+        #estado id="estado" name="estado" required
       >
 
         <mat-option *ngFor="let estado of listaEstado" 

@@ -44,7 +44,9 @@ export class TipoUsuarioListComponent implements OnInit {
   }
 
   abrirSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action);
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
   aplicarFiltro(filterValue:string){

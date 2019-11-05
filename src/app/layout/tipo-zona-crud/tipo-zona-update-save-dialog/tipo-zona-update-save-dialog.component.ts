@@ -49,7 +49,9 @@ export class TipoZonaUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -64,6 +66,21 @@ export class TipoZonaUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tipoZona.tipoZonaId==null || this.tipoZona.tipoZonaId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoZona.nombreTipoZona==null || this.tipoZona.nombreTipoZona==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoZona.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar tipo zona", 
       body : "¿Esta usted seguro de querer actualizar el tipo " +
@@ -91,6 +108,21 @@ export class TipoZonaUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.tipoZona.tipoZonaId==null || this.tipoZona.tipoZonaId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoZona.nombreTipoZona==null || this.tipoZona.nombreTipoZona==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoZona.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear tipo zona", 
       body : "¿Esta usted seguro de querer crear el tipo " +

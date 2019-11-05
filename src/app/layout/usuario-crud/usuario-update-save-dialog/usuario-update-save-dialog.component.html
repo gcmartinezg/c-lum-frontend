@@ -19,8 +19,8 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="usuario.usuarioId" 
       #usuarioId id="usuarioId" name="usuarioId" 
-      placeholder="ID Usuario" 
-      >
+      placeholder="ID Usuario" type="text" required
+      > 
     </ng-template>
   </mat-form-field>
 
@@ -35,7 +35,7 @@
     <mat-label>Tipo Usuario</mat-label>
     <mat-select [(ngModel)]="usuario.tipoUsuarioId_TipoUsuario" 
       #tipoUsuarioId_TipoUsuario id="tipoUsuarioId_TipoUsuario" 
-      name="tipoUsuarioId_TipoUsuario" 
+      name="tipoUsuarioId_TipoUsuario"  required
     >
 
       <mat-option *ngFor="let tipoUsuario of listaTipoUsuario" 
@@ -98,7 +98,7 @@
       <mat-form-field>
         <mat-label>Estado</mat-label>
         <mat-select [(ngModel)]="usuario.idEstado_Estado" 
-          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
+          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado" required
         >
   
           <mat-option *ngFor="let estado of listaEstado" 

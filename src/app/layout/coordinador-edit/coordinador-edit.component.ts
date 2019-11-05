@@ -53,7 +53,9 @@ export class CoordinadorEditComponent implements OnInit {
   
 
   abrirSnackBar(message: string, action: string){
-    this.snackBar.open(message, action);
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -68,6 +70,21 @@ export class CoordinadorEditComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tercero.telefono==null || this.tercero.telefono<=0){
+      return this.snackBar.open('Revise el telefono por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.email==null || this.tercero.email==""){
+      return this.snackBar.open('Revise el email por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.direccion==null || this.tercero.direccion==""){
+      return this.snackBar.open('Revise la direccion por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar Coordinador", 
       body : "¿Esta usted seguro de querer actualizar su información " +

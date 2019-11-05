@@ -49,7 +49,9 @@ export class TipoInstalacionUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -64,6 +66,21 @@ export class TipoInstalacionUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tipoInstalacion.tipoInstalacionId==null || this.tipoInstalacion.tipoInstalacionId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoInstalacion.nombreTipoInstalacion==null || this.tipoInstalacion.nombreTipoInstalacion==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoInstalacion.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar tipo transformador", 
       body : "¿Esta usted seguro de querer actualizar el tipo " +
@@ -91,6 +108,21 @@ export class TipoInstalacionUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.tipoInstalacion.tipoInstalacionId==null || this.tipoInstalacion.tipoInstalacionId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoInstalacion.nombreTipoInstalacion==null || this.tipoInstalacion.nombreTipoInstalacion==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoInstalacion.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear tipo transformador", 
       body : "¿Esta usted seguro de querer crear el tipo " +

@@ -99,7 +99,9 @@ export class UsuarioUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -114,6 +116,31 @@ export class UsuarioUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.usuario.usuarioId==null || this.usuario.usuarioId==""){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.tipoUsuarioId_TipoUsuario==null ){
+      return this.snackBar.open('Revise el tipo usuario por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.terceroId_Tercero==null ){
+      return this.snackBar.open('Revise el Tercero por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.contrasenia==null || this.usuario.contrasenia==""){
+      return this.snackBar.open('Revise la contraseña por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar usuario", 
       body : "¿Esta usted seguro de querer actualizar el usuario " +
@@ -142,6 +169,31 @@ export class UsuarioUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.usuario.usuarioId==null || this.usuario.usuarioId==""){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.tipoUsuarioId_TipoUsuario==null ){
+      return this.snackBar.open('Revise el tipo usuario por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.terceroId_Tercero==null ){
+      return this.snackBar.open('Revise el Tercero por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.usuario.contrasenia==null || this.usuario.contrasenia==""){
+      return this.snackBar.open('Revise la contraseña por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear usuario", 
       body : "¿Esta usted seguro de querer crear el usuario " +

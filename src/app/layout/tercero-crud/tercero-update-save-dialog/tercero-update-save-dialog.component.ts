@@ -63,7 +63,9 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -78,6 +80,48 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tercero.terceroId==null || this.tercero.terceroId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.tipoDocumentoId_TipoDocumento==null ){
+      return this.snackBar.open('Revise el Tipo Documento por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.numeroDocumento==null || this.tercero.numeroDocumento<=0){
+      return this.snackBar.open('Revise el numero de documento por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.telefono==null || this.tercero.telefono<=0){
+      return this.snackBar.open('Revise el telefono por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.nombreTercero==null || this.tercero.nombreTercero==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.email==null || this.tercero.email==""){
+      return this.snackBar.open('Revise el email por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.direccion==null || this.tercero.direccion==""){
+      return this.snackBar.open('Revise la direccion por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    
+    
     let data = {
       title : "Actualizar tercero", 
       body : "¿Esta usted seguro de querer actualizar el tercero " +
@@ -105,6 +149,46 @@ export class TerceroUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.tercero.terceroId==null || this.tercero.terceroId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.tipoDocumentoId_TipoDocumento==null ){
+      return this.snackBar.open('Revise el Tipo Documento por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.numeroDocumento==null || this.tercero.numeroDocumento<=0){
+      return this.snackBar.open('Revise el numero de documento por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.telefono==null || this.tercero.telefono<=0){
+      return this.snackBar.open('Revise el telefono por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.nombreTercero==null || this.tercero.nombreTercero==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.email==null || this.tercero.email==""){
+      return this.snackBar.open('Revise el email por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tercero.direccion==null || this.tercero.direccion==""){
+      return this.snackBar.open('Revise la direccion por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear tercero", 
       body : "¿Esta usted seguro de querer crear el tercero " +

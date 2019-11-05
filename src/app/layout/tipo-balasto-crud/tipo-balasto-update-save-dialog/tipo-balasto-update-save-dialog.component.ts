@@ -47,10 +47,22 @@ export class TipoBalastoUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   actualizar(){
+    if(this.tipoBalasto.tipoBalastoId==null || this.tipoBalasto.tipoBalastoId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoBalasto.nombreTipoBalasto==null || this.tipoBalasto.nombreTipoBalasto==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     this.tipoBalastoService.update(this.tipoBalasto).subscribe(
       resolve=>{
         this.dialogRef.close(resolve.mensaje);
@@ -61,6 +73,16 @@ export class TipoBalastoUpdateSaveDialogComponent implements OnInit {
   }
 
   crear(){
+    if(this.tipoBalasto.tipoBalastoId==null || this.tipoBalasto.tipoBalastoId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoBalasto.nombreTipoBalasto==null || this.tipoBalasto.nombreTipoBalasto==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     this.tipoBalastoService.save(this.tipoBalasto).subscribe(
       resolve=>{
         this.dialogRef.close(resolve.mensaje);

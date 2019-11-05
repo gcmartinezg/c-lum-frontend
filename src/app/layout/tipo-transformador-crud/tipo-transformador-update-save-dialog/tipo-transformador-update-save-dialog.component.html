@@ -19,7 +19,7 @@
     <ng-template #elseInput>
       <input matInput [(ngModel)]="tipoTransformador.tipoTransformadorId" 
       #tipoTransformadorId id="tipoTransformadorId" name="tipoTransformadorId" 
-      placeholder="ID Tipo Transformador"
+      placeholder="ID Tipo Transformador" type="number" required
       >
     </ng-template>
   </mat-form-field>
@@ -35,7 +35,7 @@
       <mat-form-field>
         <mat-label>Estado</mat-label>
         <mat-select [(ngModel)]="tipoTransformador.idEstado_Estado" 
-          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado"
+          #idEstado_Estado id="idEstado_Estado" name="idEstado_Estado" required
         >
   
           <mat-option *ngFor="let estado of listaEstado" 

@@ -49,7 +49,9 @@ export class TipoLamparaUpdateSaveDialogComponent implements OnInit {
   }
 
   abrirSnackBar(mensaje: string, accion: string) {
-    this.snackBar.open(mensaje, accion);
+    this.snackBar.open(mensaje, accion, {
+      duration: 3000,
+    });
   }
 
   retornarMatDialogConfig(datos : any) : MatDialogConfig<any>{
@@ -64,6 +66,21 @@ export class TipoLamparaUpdateSaveDialogComponent implements OnInit {
   }
 
   actualizar() {
+    if(this.tipoLampara.tipoLamparaId==null || this.tipoLampara.tipoLamparaId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoLampara.nombreTipoLampara==null || this.tipoLampara.nombreTipoLampara==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoLampara.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Actualizar tipo transformador", 
       body : "¿Esta usted seguro de querer actualizar el tipo " +
@@ -91,6 +108,21 @@ export class TipoLamparaUpdateSaveDialogComponent implements OnInit {
   }
 
   crear() {
+    if(this.tipoLampara.tipoLamparaId==null || this.tipoLampara.tipoLamparaId<=0){
+      return this.snackBar.open('Revise el Id por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoLampara.nombreTipoLampara==null || this.tipoLampara.nombreTipoLampara==""){
+      return this.snackBar.open('Revise el nombre por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
+    if(this.tipoLampara.idEstado_Estado==null ){
+      return this.snackBar.open('Revise el estado por favor', 'ERROR', {
+        duration: 3000,
+      });
+    }
     let data = {
       title : "Crear tipo transformador", 
       body : "¿Esta usted seguro de querer crear el tipo " +
